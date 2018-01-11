@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\layout\\ufcsdk_quick_add.xml",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\layout\\ufcsdk_quick_add.xml"
+    },
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\layout\\ufcpay_dialog_inputpsd.xml",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\layout\\ufcpay_dialog_inputpsd.xml"
+    },
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\layout\\ufcsdk_activity_jar_invoke.xml",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\layout\\ufcsdk_activity_jar_invoke.xml"
+    },
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\layout\\ufcsdk_wx_pay_result.xml",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\layout\\ufcsdk_wx_pay_result.xml"
+    },
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\layout\\ufcpay_add_bank_dialog.xml",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\layout\\ufcpay_add_bank_dialog.xml"
+    },
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\layout\\ufcsdk_activity_childitem.xml",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\layout\\ufcsdk_activity_childitem.xml"
+    },
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\layout\\ufcsdk_activity_jar.xml",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\layout\\ufcsdk_activity_jar.xml"
+    },
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\layout\\ufcpay_item_add_bank.xml",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\layout\\ufcpay_item_add_bank.xml"
+    },
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\layout\\ufcsdk_activity_mylistviewwithradio.xml",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\layout\\ufcsdk_activity_mylistviewwithradio.xml"
+    }
+]

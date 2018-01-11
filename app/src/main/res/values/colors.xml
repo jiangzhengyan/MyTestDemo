@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="alphablack">#80000000</color>
+    <color name="textwhite">#ffffffff</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="black_overlay">#66000000</color>
+    <!--预缴费-->
+    <!--标题项-->
+    <color name="prefee_title_text_color">#555555</color>
+    <!--值项-->
+    <color name="prefee_content_text_color">#666666</color>
+    <color name="main">#FFF</color>
+
+
+    <color name="colorWhite">#ffffff</color>
+    <color name="translete">#00000000</color>
+    <color name="viewfinder_frame">#ff000000</color>
+    <color name="viewfinder_laser">#ffff0000</color>
+    <color name="red_text">#f74545</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="status_view">#50000000</color>
+    <color name="status_text">#ffffffff</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="result_image_border">#ffffffff</color>
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_points">#c000ff00</color>
+    <color name="result_text">#ffffffff</color>
+    <color name="result_view">#b0000000</color>
+    <color name="province_line_border">#C7C7C7</color>
+    <color name="orange">#ff8400</color>
+    <color name="gray">#999999</color>
+    <color name="line_color">#f48c8c8c</color>
+    <color name="toast_line_color">#C0C4C7</color>
+
+    <!--提示文字的颜色-->
+    <color name="hint_color">#bababa</color>
+    <color name="gray_text_color">#999</color>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="blue">#ffccddff</color>
+    <color name="grey">#C0C4C7</color>
+    <color name="darkgrey">#ff404040</color>
+    <color name="toasterro">#9fd524</color>
+    <color name="lightgrey">#ff888888</color>
+    <color name="semitransparent">#80000000</color>
+    <color name="lightransparent">#a0000000</color>
+    <color name="navpage">#FFE1E8EB</color>
+    <color name="bule_">#18BAFF</color>
+    <!--绑定房产确定取消按钮-->
+    <color name="sure_color">#18BAFF</color>
+    <color name="cancle_color">#18BAFF</color>
+    <!--园圈用户名字颜色-->
+    <color name="toast_name_color">#576B95</color>
+
+
+
+    <!--发票物流-->
+    <color name="color_express_content">#6c6c6c</color>
+    <color name="color_express_time">#a6a5a5</color>
+    <!--订餐-->
+    <color name="darkgrey_dish_subtext">#6c6c6c</color>
+    <color name="darkgrey_dish_black_text_area">#d4d4d4</color>
+
+
+
+</resources>

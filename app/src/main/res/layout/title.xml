@@ -1,0 +1,106 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/rl_title"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#fff">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="标题"
+        android:textColor="#4c4c4c"
+        android:textSize="20sp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_suggestion_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_title_suggestion_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="新版吐槽"
+            android:textColor="#4c4c4c"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_title_suggestion_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="18766626666"
+            android:textColor="#4c4c4c"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:background="#999"/>
+
+
+
+    <TextView
+        android:id="@+id/tv_exchange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:text="兑换记录"
+        android:textColor="#828282"
+        android:textSize="14dp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tv_pay_cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:text="缴费"
+        android:textColor="#828282"
+        android:textSize="14dp"
+        android:visibility="gone"/>
+
+
+    <TextView
+        android:id="@+id/tv_one_key_read"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:text="一键已读"
+        android:textColor="#828282"
+        android:textSize="15sp"
+
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/tv_invoice_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="取消"
+        android:visibility="gone"
+        android:layout_marginRight="12dp"
+        android:textColor="#4a8df1"
+        android:textSize="20sp"/>
+
+</RelativeLayout>

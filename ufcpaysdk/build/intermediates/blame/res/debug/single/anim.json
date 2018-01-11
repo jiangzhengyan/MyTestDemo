@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\anim\\share_popup_in.xml",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\anim\\share_popup_in.xml"
+    },
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\anim\\share_popup_out.xml",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\anim\\share_popup_out.xml"
+    }
+]

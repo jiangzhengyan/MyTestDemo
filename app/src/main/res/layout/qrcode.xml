@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#8ce4e4e4"
+              android:orientation="vertical">
+
+    <include layout="@layout/title"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="55dp"
+            android:layout_weight="4"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_door_qr_title"
+                android:paddingBottom="25dp"
+                android:paddingTop="25dp"
+
+                >
+
+                <TextView
+                    android:id="@+id/tv_park"
+                    android:textColor="#FFF"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="北工大软件园"
+                    />
+
+                <TextView
+                    android:textSize="13sp"
+                    android:textColor="#555555"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:text="切换"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFF"
+                android:paddingTop="18dp">
+
+                <ImageView
+                    android:id="@+id/iv_door_qr"
+                    android:layout_width="155dp"
+                    android:layout_height="155dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@mipmap/icon_qr_code"
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_door_qr"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="18dp"
+                    android:id="@+id/ll_refresh"
+                    android:layout_marginTop="18dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="120 秒后自动更新"
+                        android:textColor="#f1666666"
+                        android:textSize="14sp"
+                        />
+
+
+                    <ImageView
+                        android:id="@+id/iv_refresh"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/selector_refresh"
+                        />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!--使用说明-->
+            <TextView
+                android:layout_width="match_parent"
+                android:lineSpacingExtra="8dp"
+                android:layout_marginTop="28dp"
+                android:layout_height="wrap_content"
+                android:text="使用说明:
+1.请讲二维码置于门禁扫描器下,验证通过后,门禁打开,手机并伴随振动提示
+2.门禁二维码,每隔120秒,会自动刷新一次
+3.若超时,系统微自动更新,请手动点击刷新"
+                android:textColor="#e3666666"
+                android:textSize="12sp"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+</LinearLayout>

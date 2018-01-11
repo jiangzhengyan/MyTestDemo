@@ -1,0 +1,337 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <!--物流信息线的高度和宽度-->
+    <dimen name="express_height">40dp</dimen>
+    <dimen name="express_width">2dp</dimen>
+    <!--物流信息字体大小-->
+    <dimen name="dimen_express_content">15sp</dimen>
+    <dimen name="dimen_express_time">14sp</dimen>
+    <!--信息间距-->
+    <dimen name="dimen_express_margin">10dp</dimen>
+    <!--物流点的大小-->
+    <dimen name="dimen_express_dot_radius">16dp</dimen>
+
+    <!--订餐-->
+    <!--购物车宽和高-->
+    <dimen name="dish_shopping_cart_h_w">55dp</dimen>
+    <!--购物车菜数量红点大小-->
+    <dimen name="dish_shopping_cart_food_count_h_w">15dp</dimen>
+    <dimen name="dish_shopping_cart_food_count_textsize">10sp</dimen>
+    <!--购物车黑条高度-->
+    <dimen name="dish_shopping_cart_black_h">35dp</dimen>
+
+    <!--订餐物流信息线的高度和宽度-->
+    <dimen name="dish_express_height">14dp</dimen>
+    <dimen name="dish_express_width">2dp</dimen>
+    <!--物流信息字体大小-->
+    <dimen name="dish_express_title_sp">14sp</dimen>
+    <dimen name="dish_express_time_sp">13sp</dimen>
+    <!--信息间距-->
+    <dimen name="dish_express_margin">2dp</dimen>
+    <!--物流点的大小-->
+    <dimen name="dish_express_dot_radius">13dp</dimen>
+
+    <!--员工-->
+    <!--间距-->
+    <dimen name="worker_marginleft">13dp</dimen>
+    <dimen name="worker_margin_top_bottom">13dp</dimen>
+    <!--文字大小-->
+    <dimen name="worker_textsize">15sp</dimen>
+    <!--品质抽检消息圈的直径-->
+    <dimen name="quanlity_inspction_red_dot">15dp</dimen>
+    <dimen name="quanlity_inspction_red_dot_margintop">4dp</dimen>
+    <dimen name="quanlity_inspction_red_dot_marginright">15dp</dimen>
+
+    <!--预缴费-->
+    <!--标题项-->
+    <dimen name="prefee_title_text_size">14sp</dimen>
+    <!--值项-->
+    <dimen name="prefee_content_text_size">13sp</dimen>
+
+
+    <dimen name="dm001">1px</dimen>
+    <dimen name="dm002">1px</dimen>
+    <dimen name="dm003">2px</dimen>
+    <dimen name="dm004">3px</dimen>
+    <dimen name="dm005">3px</dimen>
+    <dimen name="dm006">4px</dimen>
+    <dimen name="dm007">5px</dimen>
+    <dimen name="dm008">6px</dimen>
+    <dimen name="dm009">6px</dimen>
+    <dimen name="dm010">7px</dimen>
+    <dimen name="dm011">8px</dimen>
+    <dimen name="dm012">9px</dimen>
+    <dimen name="dm013">9px</dimen>
+    <dimen name="dm014">10px</dimen>
+    <dimen name="dm015">11px</dimen>
+    <dimen name="dm016">12px</dimen>
+    <dimen name="dm017">12px</dimen>
+    <dimen name="dm018">13px</dimen>
+    <dimen name="dm019">14px</dimen>
+    <dimen name="dm020">15px</dimen>
+    <dimen name="dm021">15px</dimen>
+    <dimen name="dm022">16px</dimen>
+    <dimen name="dm023">17px</dimen>
+    <dimen name="dm024">18px</dimen>
+    <dimen name="dm025">18px</dimen>
+    <dimen name="dm026">19px</dimen>
+    <dimen name="dm027">20px</dimen>
+    <dimen name="dm028">21px</dimen>
+    <dimen name="dm029">21px</dimen>
+    <dimen name="dm030">22px</dimen>
+    <dimen name="dm031">23px</dimen>
+    <dimen name="dm032">24px</dimen>
+    <dimen name="dm033">24px</dimen>
+    <dimen name="dm034">25px</dimen>
+    <dimen name="dm035">26px</dimen>
+    <dimen name="dm036">27px</dimen>
+    <dimen name="dm037">27px</dimen>
+    <dimen name="dm038">28px</dimen>
+    <dimen name="dm039">29px</dimen>
+    <dimen name="dm040">30px</dimen>
+    <dimen name="dm041">30px</dimen>
+    <dimen name="dm042">31px</dimen>
+    <dimen name="dm043">32px</dimen>
+    <dimen name="dm044">33px</dimen>
+    <dimen name="dm045">33px</dimen>
+    <dimen name="dm046">34px</dimen>
+    <dimen name="dm047">35px</dimen>
+    <dimen name="dm048">36px</dimen>
+    <dimen name="dm049">36px</dimen>
+    <dimen name="dm050">37px</dimen>
+    <dimen name="dm051">38px</dimen>
+    <dimen name="dm052">39px</dimen>
+    <dimen name="dm053">39px</dimen>
+    <dimen name="dm054">40px</dimen>
+    <dimen name="dm055">41px</dimen>
+    <dimen name="dm056">42px</dimen>
+    <dimen name="dm057">42px</dimen>
+    <dimen name="dm058">43px</dimen>
+    <dimen name="dm059">44px</dimen>
+    <dimen name="dm060">45px</dimen>
+    <dimen name="dm061">45px</dimen>
+    <dimen name="dm062">46px</dimen>
+    <dimen name="dm063">47px</dimen>
+    <dimen name="dm064">48px</dimen>
+    <dimen name="dm065">48px</dimen>
+    <dimen name="dm066">49px</dimen>
+    <dimen name="dm067">50px</dimen>
+    <dimen name="dm068">51px</dimen>
+    <dimen name="dm069">51px</dimen>
+    <dimen name="dm070">52px</dimen>
+    <dimen name="dm071">53px</dimen>
+    <dimen name="dm072">54px</dimen>
+    <dimen name="dm073">54px</dimen>
+    <dimen name="dm074">55px</dimen>
+    <dimen name="dm075">56px</dimen>
+    <dimen name="dm076">57px</dimen>
+    <dimen name="dm077">57px</dimen>
+    <dimen name="dm078">58px</dimen>
+    <dimen name="dm079">59px</dimen>
+    <dimen name="dm080">60px</dimen>
+    <dimen name="dm081">60px</dimen>
+    <dimen name="dm082">61px</dimen>
+    <dimen name="dm083">62px</dimen>
+    <dimen name="dm084">63px</dimen>
+    <dimen name="dm085">63px</dimen>
+    <dimen name="dm086">64px</dimen>
+    <dimen name="dm087">65px</dimen>
+    <dimen name="dm088">66px</dimen>
+    <dimen name="dm089">66px</dimen>
+    <dimen name="dm090">67px</dimen>
+    <dimen name="dm091">68px</dimen>
+    <dimen name="dm092">69px</dimen>
+    <dimen name="dm093">69px</dimen>
+    <dimen name="dm094">70px</dimen>
+    <dimen name="dm095">71px</dimen>
+    <dimen name="dm096">72px</dimen>
+    <dimen name="dm097">72px</dimen>
+    <dimen name="dm098">73px</dimen>
+    <dimen name="dm099">74px</dimen>
+    <dimen name="dm100">75px</dimen>
+    <dimen name="dm105">78px</dimen>
+    <dimen name="dm110">82px</dimen>
+    <dimen name="dm115">86px</dimen>
+    <dimen name="dm120">90px</dimen>
+    <dimen name="dm125">93px</dimen>
+    <dimen name="dm130">97px</dimen>
+    <dimen name="dm135">101px</dimen>
+    <dimen name="dm140">105px</dimen>
+    <dimen name="dm145">108px</dimen>
+    <dimen name="dm150">112px</dimen>
+    <dimen name="dm155">116px</dimen>
+    <dimen name="dm160">120px</dimen>
+    <dimen name="dm165">123px</dimen>
+    <dimen name="dm170">127px</dimen>
+    <dimen name="dm175">131px</dimen>
+    <dimen name="dm180">135px</dimen>
+    <dimen name="dm185">138px</dimen>
+    <dimen name="dm190">142px</dimen>
+    <dimen name="dm195">146px</dimen>
+    <dimen name="dm200">150px</dimen>
+    <dimen name="dm205">153px</dimen>
+    <dimen name="dm210">157px</dimen>
+    <dimen name="dm215">161px</dimen>
+    <dimen name="dm220">165px</dimen>
+    <dimen name="dm225">168px</dimen>
+    <dimen name="dm230">172px</dimen>
+    <dimen name="dm235">176px</dimen>
+    <dimen name="dm240">180px</dimen>
+    <dimen name="dm245">183px</dimen>
+    <dimen name="dm250">187px</dimen>
+    <dimen name="dm255">191px</dimen>
+    <dimen name="dm260">195px</dimen>
+    <dimen name="dm265">198px</dimen>
+    <dimen name="dm270">202px</dimen>
+    <dimen name="dm275">206px</dimen>
+    <dimen name="dm280">210px</dimen>
+    <dimen name="dm285">213px</dimen>
+    <dimen name="dm290">217px</dimen>
+    <dimen name="dm295">221px</dimen>
+    <dimen name="dm300">225px</dimen>
+    <dimen name="dm305">228px</dimen>
+    <dimen name="dm310">232px</dimen>
+    <dimen name="dm315">236px</dimen>
+    <dimen name="dm320">240px</dimen>
+    <dimen name="dm325">243px</dimen>
+    <dimen name="dm330">247px</dimen>
+    <dimen name="dm335">251px</dimen>
+    <dimen name="dm340">255px</dimen>
+    <dimen name="dm345">258px</dimen>
+    <dimen name="dm350">262px</dimen>
+    <dimen name="dm355">266px</dimen>
+    <dimen name="dm360">270px</dimen>
+    <dimen name="dm365">273px</dimen>
+    <dimen name="dm370">277px</dimen>
+    <dimen name="dm375">281px</dimen>
+    <dimen name="dm380">285px</dimen>
+    <dimen name="dm385">288px</dimen>
+    <dimen name="dm390">292px</dimen>
+    <dimen name="dm395">296px</dimen>
+    <dimen name="dm400">300px</dimen>
+    <dimen name="dm405">303px</dimen>
+    <dimen name="dm410">307px</dimen>
+    <dimen name="dm415">311px</dimen>
+    <dimen name="dm420">315px</dimen>
+    <dimen name="dm425">318px</dimen>
+    <dimen name="dm430">322px</dimen>
+    <dimen name="dm435">326px</dimen>
+    <dimen name="dm440">330px</dimen>
+    <dimen name="dm445">333px</dimen>
+    <dimen name="dm450">337px</dimen>
+    <dimen name="dm455">341px</dimen>
+    <dimen name="dm460">345px</dimen>
+    <dimen name="dm465">348px</dimen>
+    <dimen name="dm470">352px</dimen>
+    <dimen name="dm475">356px</dimen>
+    <dimen name="dm480">360px</dimen>
+    <dimen name="dm485">363px</dimen>
+    <dimen name="dm490">367px</dimen>
+    <dimen name="dm495">371px</dimen>
+    <dimen name="dm500">375px</dimen>
+    <dimen name="dm505">378px</dimen>
+    <dimen name="dm510">382px</dimen>
+    <dimen name="dm515">386px</dimen>
+    <dimen name="dm520">390px</dimen>
+    <dimen name="dm525">393px</dimen>
+    <dimen name="dm530">397px</dimen>
+    <dimen name="dm535">401px</dimen>
+    <dimen name="dm540">405px</dimen>
+    <dimen name="dm545">408px</dimen>
+    <dimen name="dm550">412px</dimen>
+    <dimen name="dm555">416px</dimen>
+    <dimen name="dm560">420px</dimen>
+    <dimen name="dm565">423px</dimen>
+    <dimen name="dm570">427px</dimen>
+    <dimen name="dm575">431px</dimen>
+    <dimen name="dm580">435px</dimen>
+    <dimen name="dm585">438px</dimen>
+    <dimen name="dm590">442px</dimen>
+    <dimen name="dm595">446px</dimen>
+    <dimen name="dm600">450px</dimen>
+    <dimen name="dm605">453px</dimen>
+    <dimen name="dm610">457px</dimen>
+    <dimen name="dm615">461px</dimen>
+    <dimen name="dm620">465px</dimen>
+    <dimen name="dm625">468px</dimen>
+    <dimen name="dm630">472px</dimen>
+    <dimen name="dm635">476px</dimen>
+    <dimen name="dm640">480px</dimen>
+    <dimen name="dm645">483px</dimen>
+    <dimen name="dm650">487px</dimen>
+    <dimen name="dm655">491px</dimen>
+    <dimen name="dm660">495px</dimen>
+    <dimen name="dm665">498px</dimen>
+    <dimen name="dm670">502px</dimen>
+    <dimen name="dm675">506px</dimen>
+    <dimen name="dm680">510px</dimen>
+    <dimen name="dm685">513px</dimen>
+    <dimen name="dm690">517px</dimen>
+    <dimen name="dm695">521px</dimen>
+    <dimen name="dm700">525px</dimen>
+    <dimen name="dm705">528px</dimen>
+    <dimen name="dm710">532px</dimen>
+    <dimen name="dm715">536px</dimen>
+    <dimen name="dm720">540px</dimen>
+    <dimen name="dm725">543px</dimen>
+    <dimen name="dm730">547px</dimen>
+    <dimen name="dm735">551px</dimen>
+    <dimen name="dm740">555px</dimen>
+    <dimen name="dm745">558px</dimen>
+    <dimen name="dm750">562px</dimen>
+    <dimen name="dm755">566px</dimen>
+    <dimen name="dm760">570px</dimen>
+    <dimen name="dm765">573px</dimen>
+    <dimen name="dm770">577px</dimen>
+    <dimen name="dm775">581px</dimen>
+    <dimen name="dm780">585px</dimen>
+    <dimen name="dm785">588px</dimen>
+    <dimen name="dm790">592px</dimen>
+    <dimen name="dm795">596px</dimen>
+    <dimen name="dm800">600px</dimen>
+    <dimen name="dm805">603px</dimen>
+    <dimen name="dm810">607px</dimen>
+    <dimen name="dm815">611px</dimen>
+    <dimen name="dm820">615px</dimen>
+    <dimen name="dm825">618px</dimen>
+    <dimen name="dm830">622px</dimen>
+    <dimen name="dm835">626px</dimen>
+    <dimen name="dm840">630px</dimen>
+    <dimen name="dm845">633px</dimen>
+    <dimen name="dm850">637px</dimen>
+    <dimen name="dm855">641px</dimen>
+    <dimen name="dm860">645px</dimen>
+    <dimen name="dm865">648px</dimen>
+    <dimen name="dm870">652px</dimen>
+    <dimen name="dm875">656px</dimen>
+    <dimen name="dm880">660px</dimen>
+    <dimen name="dm885">663px</dimen>
+    <dimen name="dm890">667px</dimen>
+    <dimen name="dm895">671px</dimen>
+    <dimen name="dm900">675px</dimen>
+    <dimen name="dm905">678px</dimen>
+    <dimen name="dm910">682px</dimen>
+    <dimen name="dm915">686px</dimen>
+    <dimen name="dm920">690px</dimen>
+    <dimen name="dm925">693px</dimen>
+    <dimen name="dm930">697px</dimen>
+    <dimen name="dm935">701px</dimen>
+    <dimen name="dm940">705px</dimen>
+    <dimen name="dm945">708px</dimen>
+    <dimen name="dm950">712px</dimen>
+    <dimen name="dm955">716px</dimen>
+    <dimen name="dm960">720px</dimen>
+    <dimen name="dm965">723px</dimen>
+    <dimen name="dm970">727px</dimen>
+    <dimen name="dm975">731px</dimen>
+    <dimen name="dm980">735px</dimen>
+    <dimen name="dm985">738px</dimen>
+    <dimen name="dm990">742px</dimen>
+    <dimen name="dm995">746px</dimen>
+
+</resources>

@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_launcher.png",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ufcsdk_back.png",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\drawable-hdpi\\ufcsdk_back.png"
+    },
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ufcsdk_pay_wangyin.png",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\drawable-hdpi\\ufcsdk_pay_wangyin.png"
+    },
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ufcsdk_pay_ali.png",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\drawable-hdpi\\ufcsdk_pay_ali.png"
+    },
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ufcpay_icon_add_bank_jiantou.png",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\drawable-hdpi\\ufcpay_icon_add_bank_jiantou.png"
+    },
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ufcpay_select.png",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\drawable-hdpi\\ufcpay_select.png"
+    },
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ufcsdk_pay_spdb_icon.png",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\drawable-hdpi\\ufcsdk_pay_spdb_icon.png"
+    },
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ufcpay_unselect.png",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\drawable-hdpi\\ufcpay_unselect.png"
+    },
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ufcsdk_pay_weixin.png",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\drawable-hdpi\\ufcsdk_pay_weixin.png"
+    },
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ufcsdk_pay_kuaijie.png",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\drawable-hdpi\\ufcsdk_pay_kuaijie.png"
+    },
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ufcsdk_pay_spdb_desc.png",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\drawable-hdpi\\ufcsdk_pay_spdb_desc.png"
+    },
+    {
+        "merged": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ufcsdk_pay_qianbao.png",
+        "source": "D:\\work_space_studio\\MyTestDemo\\ufcpaysdk\\src\\main\\res\\drawable-hdpi\\ufcsdk_pay_qianbao.png"
+    }
+]
