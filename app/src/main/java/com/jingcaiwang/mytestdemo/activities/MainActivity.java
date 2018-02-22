@@ -9,14 +9,17 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.jingcaiwang.mytestdemo.R;
 import com.jingcaiwang.mytestdemo.network.OKHttpManager;
@@ -42,7 +45,10 @@ public class MainActivity extends AppCompatActivity {
     public static final Style DEFAULT_BLACK = new Style.Builder().setBackgroundColor(R.color.alphablack).setTextColor(R.color.textwhite).build();
     public static final Configuration conf = new Configuration.Builder().setDuration(2000).build();
     public static final Configuration confLong = new Configuration.Builder().setDuration(6000).build();
-     @Override
+    private ListView lv1;
+    private MainActivity.lladapter lladapter;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);// 去掉标题栏
 //        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -52,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         final Button tv_clivk = (Button) findViewById(R.id.btn_clivk);
+        lv1 = (ListView) findViewById(R.id.lv);
 //        lv = (ListView) findViewById(R.id.lv);
         initBeepSound();
          Utils.getUtils().setApplication(null);
@@ -68,14 +75,14 @@ public class MainActivity extends AppCompatActivity {
                                                 @Override
                                                 public void onClick(View v) {
 //                                                    startActivity(new Intent(MainActivity.this,TestActivity.class));
-                                                    startActivity(new Intent(MainActivity.this,B_Activity.class));
+//                                                    startActivity(new Intent(MainActivity.this,B_Activity.class));
 //                                                    UserUtil.showToastCenter(MainActivity.this, "sdgdg chdh h hfvjnn +" + x++, Color.WHITE, 17, Toast.LENGTH_LONG);
 
                                                     PopupWindow popupWindow = new
                                                             PopupWindow(MainActivity.this);
 
                                                     popupWindow.setContentView(View.inflate(MainActivity.this,R.layout.activity_test,null));
-                                                    popupWindow.showAsDropDown(tv_clivk);
+//                                                    popupWindow.showAsDropDown(tv_clivk);
 //                                                    new Handler().postDelayed(new Runnable() {
 //                                                        @Override
 //                                                        public void run() {
@@ -89,12 +96,49 @@ public class MainActivity extends AppCompatActivity {
 //                                                        }
 //                                                    },3000);
 
+                                                    lladapter.notifyDataSetChanged();
+
+                                                        lv1.setSelection(10);
+
+                                                    lv1.smoothScrollToPosition(11);
                                                 }
                                             });
 
+        myList();
 
     }
 
+    private void myList() {
+
+        lladapter = new lladapter();
+
+        lv1.setAdapter(lladapter);
+
+    }
+public class lladapter extends BaseAdapter{
+    @Override
+    public int getCount() {
+        return 66;
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return null;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return 0;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        TextView textView = new
+                TextView(MainActivity.this);
+        textView.setText("这是  "+position);
+        return textView;
+    }
+}
 
     private void initBeepSound() {
         if (mediaPlayer == null) {
