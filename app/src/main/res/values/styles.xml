@@ -26,4 +26,28 @@
     <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
         <item name="android:background">@color/black_overlay</item>
     </style>
+
+
+    <!--环信消息提醒的activity-->
+    <style name="HxTranslucentTheme" parent="AppTheme">
+        <item name="actionBarStyle">@style/Theme.AppCompat.Light.NoActionBar</item>
+        <!--<item name="android:windowBackground">@android:color/white</item>-->
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+        <item name="android:windowAnimationStyle">@style/HxMessageActivityAnimationStyle</item>
+
+    </style>
+
+    <style name="HxMessageActivityAnimationStyle" parent="@android:style/Animation.Activity">
+        <!-- ActivityB Enter Animation -->
+        <item name="android:activityOpenEnterAnimation">@anim/in_from_top_to_center</item>
+        <!-- ActivityB Exit Animation -->
+        <item name="android:activityCloseExitAnimation">@anim/out_from_center_to_right</item>
+
+        <!--&lt;!&ndash; ActivityA Exit Animation &ndash;&gt;-->
+        <!--<item name="android:activityOpenExitAnimation">@anim/out_from_center_to_left</item>-->
+        <!--&lt;!&ndash; ActivityA Enter Animation &ndash;&gt;-->
+        <!--<item name="android:activityCloseEnterAnimation">@anim/in_from_bottom_to_center</item>-->
+
+
+    </style>
 </resources>

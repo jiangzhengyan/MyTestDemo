@@ -1,51 +1,30 @@
 package com.jingcaiwang.mytestdemo.activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
-import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
-import android.view.accessibility.AccessibilityEvent;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-import com.jingcaiwang.mytestdemo.MyDaydreamService;
 import com.jingcaiwang.mytestdemo.R;
-import com.jingcaiwang.mytestdemo.beans.BaseBean;
-import com.jingcaiwang.mytestdemo.beans.PreBillBean;
-import com.jingcaiwang.mytestdemo.conf.AppConf;
 import com.jingcaiwang.mytestdemo.network.OKHttpManager;
-import com.jingcaiwang.mytestdemo.utils.UpdateUtils;
-import com.jingcaiwang.mytestdemo.utils.UserUtil;
 import com.jingcaiwang.mytestdemo.views.CustomNoScrollWebView;
+import com.lidroid.mutils.utils.Utils;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
-import java.util.zip.Inflater;
 
 import de.keyboardsurfer.android.widget.crouton.Configuration;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
@@ -75,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
         final Button tv_clivk = (Button) findViewById(R.id.btn_clivk);
 //        lv = (ListView) findViewById(R.id.lv);
         initBeepSound();
-        Crouton.makeText(this, "哈哈哈哈",  DEFAULT,R.layout.activity_main).setConfiguration(conf).show();
+         Utils.getUtils().setApplication(null);
+         Crouton.makeText(this, ""+Utils.getUtils(),  DEFAULT,R.layout.activity_main).setConfiguration(conf).show();
 //
 //        BaseBean baseBean = JSONObject.parseObject("", BaseBean.class);
 //        List<PreBillBean> preFeelist = JSONArray.parseArray(baseBean.getData(), PreBillBean.class);
@@ -87,7 +67,8 @@ public class MainActivity extends AppCompatActivity {
 
                                                 @Override
                                                 public void onClick(View v) {
-                                                    startActivity(new Intent(MainActivity.this,TestActivity.class));
+//                                                    startActivity(new Intent(MainActivity.this,TestActivity.class));
+                                                    startActivity(new Intent(MainActivity.this,B_Activity.class));
 //                                                    UserUtil.showToastCenter(MainActivity.this, "sdgdg chdh h hfvjnn +" + x++, Color.WHITE, 17, Toast.LENGTH_LONG);
 
                                                     PopupWindow popupWindow = new

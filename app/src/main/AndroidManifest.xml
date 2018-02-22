@@ -141,10 +141,9 @@
             android:name=".activities.TestActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity
-            android:name=".activities.TesyBActivity"
-
-            >
+        <activity android:name=".activities.TesyBActivity">
+        </activity>
+        <activity android:name=".activities.B_Activity" android:theme="@style/HxTranslucentTheme">
         </activity>
     </application>
 

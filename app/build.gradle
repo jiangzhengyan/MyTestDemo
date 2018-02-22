@@ -5,7 +5,7 @@ android {
     buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "com.jingcaiwang.mytestdemo"
-        minSdkVersion 19
+        minSdkVersion 16
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
@@ -41,4 +41,6 @@ dependencies {
         exclude group: 'com.google.android', module: 'support-v4'
     }
     compile files('libs/youmneg/flame.jar')
+    compile files('libs/xutils.jar')
+    compile files('libs/xu111tils.jar')
 }
