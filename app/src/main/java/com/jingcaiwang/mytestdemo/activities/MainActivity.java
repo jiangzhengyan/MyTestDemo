@@ -6,8 +6,10 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -24,6 +26,7 @@ import android.widget.TextView;
 import com.jingcaiwang.mytestdemo.R;
 import com.jingcaiwang.mytestdemo.network.OKHttpManager;
 import com.jingcaiwang.mytestdemo.views.CustomNoScrollWebView;
+import com.jingcaiwang.mytestdemo.views.MyscrollView;
 import com.lidroid.mutils.utils.Utils;
 
 import java.io.IOException;
@@ -47,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
     public static final Configuration confLong = new Configuration.Builder().setDuration(6000).build();
     private ListView lv1;
     private MainActivity.lladapter lladapter;
+    private MyscrollView myscrollview;
+    private TextView tv_1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         final Button tv_clivk = (Button) findViewById(R.id.btn_clivk);
+        myscrollview = (MyscrollView) findViewById(R.id.myscrollview);
+        tv_1 = (TextView) findViewById(R.id.tv_1);
         lv1 = (ListView) findViewById(R.id.lv);
 //        lv = (ListView) findViewById(R.id.lv);
         initBeepSound();
@@ -106,6 +113,17 @@ public class MainActivity extends AppCompatActivity {
 
         myList();
 
+
+        myscrollview.setOnScrollStateChangedListener(new MyscrollView.OnScrollStateChangeListener() {
+            @Override
+            public void onScrollChanged(MyscrollView.ScrollType scrollType) {
+
+                Log.e(TAG, "onScrollChanged: "+ scrollType);
+            }
+        },new Handler());
+
+
+        tv_1.setText("好啊好啊");
     }
 
     private void myList() {

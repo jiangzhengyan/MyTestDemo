@@ -6,8 +6,9 @@
     android:background="#FFFFFF"
     android:orientation="vertical">
 
-    <ScrollView
+    <com.jingcaiwang.mytestdemo.views.MyscrollView
         android:layout_width="match_parent"
+        android:id="@+id/myscrollview"
         android:layout_height="match_parent">
 
         <LinearLayout
@@ -130,7 +131,9 @@
                 android:layout_height="match_parent"></ListView>
 
 
+            <include layout="@layout/titles"/>
+            <include layout="@layout/titles"/>
         </LinearLayout>
 
-    </ScrollView>
+    </com.jingcaiwang.mytestdemo.views.MyscrollView>
 </LinearLayout>
