@@ -29,6 +29,7 @@ import com.jingcaiwang.mytestdemo.views.CustomNoScrollWebView;
 import com.jingcaiwang.mytestdemo.views.MyscrollView;
 import com.lidroid.mutils.utils.Utils;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+        processSome();
         final Button tv_clivk = (Button) findViewById(R.id.btn_clivk);
         myscrollview = (MyscrollView) findViewById(R.id.myscrollview);
         tv_1 = (TextView) findViewById(R.id.tv_1);
@@ -126,6 +128,15 @@ public class MainActivity extends AppCompatActivity {
         tv_1.setText("好啊好啊");
     }
 
+    private void processSome() {
+
+
+        File externalCacheDir =
+                getExternalCacheDir();
+        String path = externalCacheDir.getPath();
+
+        Log.e(TAG, "processSome: 缓存目录 "+path );
+    }
     private void myList() {
 
         lladapter = new lladapter();
