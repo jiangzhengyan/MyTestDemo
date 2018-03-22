@@ -6,7 +6,7 @@ android {
     defaultConfig {
         applicationId "com.jingcaiwang.mytestdemo"
         minSdkVersion 16
-        targetSdkVersion 24
+        targetSdkVersion 19
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -43,4 +43,9 @@ dependencies {
     compile files('libs/youmneg/flame.jar')
     compile files('libs/xutils.jar')
     compile files('libs/xu111tils.jar')
+    compile ('uk.co.chrisjenx:calligraphy:2.2.0') {
+        exclude group: 'com.android.support:design'
+    }
+
+
 }

@@ -4,25 +4,102 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
+    android:fitsSystemWindows="true"
+    android:hapticFeedbackEnabled="true"
     android:orientation="vertical">
 
     <com.jingcaiwang.mytestdemo.views.MyscrollView
-        android:layout_width="match_parent"
         android:id="@+id/myscrollview"
-        android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarSize="10dp"
+        android:scrollbarThumbVertical="@color/colorAccent"
+        android:scrollbarTrackVertical="@color/gray">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <EditText
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeActionLabel="12"
+                android:imeOptions="actionNone"
+                android:padding="12dp"
+           android:minLines="7"
+                />
+  <EditText
+                android:id="@+id/et_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeActionLabel="12"
+                android:imeOptions="actionNone"
+                android:padding="12dp"
+                android:singleLine="true"
+                />
+
+            <EditText
+                android:id="@+id/et_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeActionLabel="12"
+                android:imeOptions="actionGo"
+                android:padding="12dp"
+                android:singleLine="true"
+                />
+
+            <EditText
+                android:id="@+id/et_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeActionLabel="12"
+                android:imeOptions="actionSearch"
+                android:padding="12dp"
+                android:singleLine="true"
+                />
+
+            <EditText
+                android:id="@+id/et_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeActionLabel="12"
+                android:imeOptions="actionSend"
+                android:padding="12dp"
+                android:singleLine="true"
+                />
+
+            <EditText
+                android:id="@+id/et_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeActionLabel="12"
+                android:imeOptions="actionNext"
+                android:padding="12dp"
+                android:singleLine="true"
+                />
+
+            <EditText
+                android:id="@+id/et_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeActionLabel="12"
+                android:imeOptions="actionDone"
+                android:padding="12dp"
+                android:singleLine="true"
+                />
+
             <Button
                 android:id="@+id/btn_clivk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:layout_gravity="center_horizontal"
+                android:soundEffectsEnabled="true"
                 android:text="111111111111111111111"
                 android:textColor="@color/colorAccent"
+
                 android:textSize="22sp"
                 />
 
@@ -132,6 +209,67 @@
 
 
             <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
+            <include layout="@layout/titles"/>
+
             <include layout="@layout/titles"/>
         </LinearLayout>
 
