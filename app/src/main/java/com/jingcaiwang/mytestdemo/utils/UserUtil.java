@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.net.Uri;
@@ -779,5 +780,19 @@ public class UserUtil {
 
         canvas.drawText(text, paddingLeft, paddingTop, paint);
         return bitmap;
+    }
+
+    /**
+     *   随机颜色
+     * @return
+     */
+    public static int getRandomColor(){
+
+        Random random = new Random();
+        int r = random.nextInt(255);
+        int g = random.nextInt(255);
+        int b = random.nextInt(255);
+        int rgb = Color.rgb(r, g, b);
+        return rgb;
     }
 }

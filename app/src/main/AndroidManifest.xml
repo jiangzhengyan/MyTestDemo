@@ -79,7 +79,23 @@
         </activity>
         <activity android:name=".activities.TesyBActivity">
         </activity>
-        <activity android:name=".activities.B_Activity" android:theme="@style/HxTranslucentTheme">
+        <activity android:name=".activities.Activity_1_1">
+        </activity>
+        <activity android:name=".activities.Activity_1_2">
+        </activity>
+        <activity android:name=".activities.Activity_1_3">
+        </activity>
+        <activity android:name=".activities.Activity_2_1">
+        </activity>
+        <activity android:name=".activities.Activity_2_2">
+        </activity>
+        <activity android:name=".activities.Activity_2_3">
+        </activity>
+        <activity android:name=".activities.Activity_3_1">
+        </activity>
+        <activity android:name=".activities.Activity_3_2">
+        </activity>
+        <activity android:name=".activities.Activity_3_3">
         </activity>
     </application>
 

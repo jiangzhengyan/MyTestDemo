@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import com.jingcaiwang.mytestdemo.R;
 
-public class B_Activity extends AppCompatActivity {
+public class Activity_2_3 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_b_);
+        setContentView(R.layout.activity_2_3);
     }
 }

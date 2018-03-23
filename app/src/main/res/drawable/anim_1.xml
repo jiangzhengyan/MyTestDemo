@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+                xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/combo_image_1" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_2" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_3" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_4" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_5" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_6" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_7" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_13" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_14" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_15" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_16" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_17" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_18" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_19" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_20" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_21" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_22" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_23" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_24" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_25" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_28" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_29" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_30" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_31" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_32" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_33" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_34" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_35" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_36" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_44" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_45" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_46" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_47" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_48" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_49" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_50" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_51" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_52" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_53" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_54" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_55" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_56" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_57" android:duration="50"/>
+    <item android:drawable="@drawable/combo_image_58" android:duration="50"/>
+
+
+</animation-list>

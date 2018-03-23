@@ -11,12 +11,10 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -25,19 +23,16 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jingcaiwang.mytestdemo.R;
 import com.jingcaiwang.mytestdemo.network.OKHttpManager;
+import com.jingcaiwang.mytestdemo.utils.UserUtil;
 import com.jingcaiwang.mytestdemo.utils.permission.PermissionsManager;
 import com.jingcaiwang.mytestdemo.utils.permission.PermissionsResultAction;
 import com.jingcaiwang.mytestdemo.views.CustomNoScrollWebView;
-import com.jingcaiwang.mytestdemo.views.MyscrollView;
 import com.lidroid.mutils.utils.Utils;
 
 import java.io.File;
@@ -45,6 +40,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Field;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -66,10 +62,8 @@ public class MainActivity extends AppCompatActivity {
     public static final Style DEFAULT_BLACK = new Style.Builder().setBackgroundColor(R.color.alphablack).setTextColor(R.color.textwhite).build();
     public static final Configuration conf = new Configuration.Builder().setDuration(2000).build();
     public static final Configuration confLong = new Configuration.Builder().setDuration(6000).build();
-    private ListView lv1;
     private MainActivity.lladapter lladapter;
-    private MyscrollView myscrollview;
-    private TextView tv_1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,129 +72,61 @@ public class MainActivity extends AppCompatActivity {
 //        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
 //        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);// 去掉信息栏
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
-        processSome();
-        callP();
-        final Button tv_clivk = (Button) findViewById(R.id.btn_clivk);
-        myscrollview = (MyscrollView) findViewById(R.id.myscrollview);
-        tv_1 = (TextView) findViewById(R.id.tv_1);
-        lv1 = (ListView) findViewById(R.id.lv);
-        input();
-//        lv = (ListView) findViewById(R.id.lv);
-        initBeepSound();
-        Utils.getUtils().setApplication(null);
+
+        lv = (ListView) findViewById(R.id.lv);
+
+
         Crouton.makeText(this, "" + Utils.getUtils(), DEFAULT, R.layout.activity_main).setConfiguration(conf).show();
 //
-//        BaseBean baseBean = JSONObject.parseObject("", BaseBean.class);
-//        List<PreBillBean> preFeelist = JSONArray.parseArray(baseBean.getData(), PreBillBean.class);
-//
-
-        tv_clivk.setOnClickListener(new
-                                            View.OnClickListener() {
-                                                int x = 0;
-
-                                                @Override
-                                                public void onClick(View v) {
-//                                                    startActivity(new Intent(MainActivity.this,TestActivity.class));
-//                                                    startActivity(new Intent(MainActivity.this,B_Activity.class));
-//                                                    UserUtil.showToastCenter(MainActivity.this, "sdgdg chdh h hfvjnn +" + x++, Color.WHITE, 17, Toast.LENGTH_LONG);
-
-                                                    PopupWindow popupWindow = new
-                                                            PopupWindow(MainActivity.this);
-
-                                                    popupWindow.setContentView(View.inflate(MainActivity.this, R.layout.activity_test, null));
-//                                                    popupWindow.showAsDropDown(tv_clivk);
-//                                                    new Handler().postDelayed(new Runnable() {
-//                                                        @Override
-//                                                        public void run() {
-//                                                            UpdateUtils.notifyUpdate(MainActivity.this, "title", "content", 100);
-//                                                            UserUtil.showToastCenter(MainActivity.this, "11111111111+" + x++, Color.WHITE, 17, Toast.LENGTH_LONG);
-//
-//                                                            PopupWindow popupWindow = new
-//                                                                    PopupWindow(MainActivity.this);
-//                                                            popupWindow.setContentView(View.inflate(MainActivity.this,R.layout.activity_test,null));
-//                                                            popupWindow.showAsDropDown(tv_clivk);
-//                                                        }
-//                                                    },3000);
-
-                                                    lladapter.notifyDataSetChanged();
-
-                                                    lv1.setSelection(10);
-
-                                                    lv1.smoothScrollToPosition(11);
-                                                }
-                                            });
-
         myList();
 
 
-        myscrollview.setOnScrollStateChangedListener(new MyscrollView.OnScrollStateChangeListener() {
-            @Override
-            public void onScrollChanged(MyscrollView.ScrollType scrollType) {
-
-                Log.e(TAG, "onScrollChanged: " + scrollType);
-            }
-        }, new Handler());
+        getPhoneDeviceInfo();
 
 
-        tv_1.setText("好啊好啊");
     }
 
-    private void input() {
-        EditText et_1 = (EditText) findViewById(R.id.et_1);
-        EditText et_2 = (EditText) findViewById(R.id.et_2);
-        EditText et_3 = (EditText) findViewById(R.id.et_3);
-        EditText et_4 = (EditText) findViewById(R.id.et_4);
-        EditText et_5 = (EditText) findViewById(R.id.et_5);
-        EditText et_6 = (EditText) findViewById(R.id.et_6);
-        et_1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                Toast.makeText(MainActivity.this,actionId+"",Toast.LENGTH_LONG).show();
-                return false;
-            }
-        });
-        et_2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                Toast.makeText(MainActivity.this,actionId+"",Toast.LENGTH_LONG).show();
-                return false;
-            }
-        });
-        et_3.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                Toast.makeText(MainActivity.this,actionId+"",Toast.LENGTH_LONG).show();
-                return false;
-            }
-        });
-        et_4.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                Toast.makeText(MainActivity.this,actionId+"",Toast.LENGTH_LONG).show();
-                return false;
-            }
-        });
-        et_5.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                Toast.makeText(MainActivity.this,actionId+"",Toast.LENGTH_LONG).show();
-                return false;
-            }
-        });
-        et_6.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                Toast.makeText(MainActivity.this,actionId+"",Toast.LENGTH_LONG).show();
-                return false;
-            }
-        });
+    private String getPhoneDeviceInfo() {
 
+        //获取手机型号：OPPO R11
+        String MODEL = android.os.Build.MODEL;
+        // 获取手机厂商：OPPO
+        String MANUFACTURER = android.os.Build.MANUFACTURER;
+        //           arm64-v8a
+        String CPU_ABI = android.os.Build.CPU_ABI;
+        //OPPO/R11/R11:7.1.1/NMF26X/1506793082:user/release-keys
+        String FINGERPRINT = android.os.Build.FINGERPRINT;
+        //d6b6041
+        String SERIAL = android.os.Build.SERIAL;
+        StringBuilder sb = new StringBuilder();
+        sb.append("Device infomation :" )
+         .append("\nMODEL = "+MODEL)
+                .append("\nMANUFACTURER = "+MANUFACTURER)
+                .append("\nCPU_ABI = "+CPU_ABI)
+                .append("\nFINGERPRINT = " +FINGERPRINT)
+                .append("\nSERIAL = "+SERIAL)
+                .append("\n");
+        Log.e(TAG, "getPhoneInfo: "+sb );
+
+        Field[] fields = Build.class.getFields();
+        for (Field f : fields) {
+            try {
+                String name = f.getName();
+                Object value = f.get(name);
+//       String brand = f.get("BRAND").toString(); //Xiaomi
+//       String model = f.get("MODEL").toString(); //Redmi Note 3
+
+                Log.e(TAG,  "key:" + name + ":value:" + value);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+        return  sb.toString();
     }
+
 
     private void processSome() {
-
 
         //[1] 获取缓存目录,不需要权限,清理缓存的时候会被清理掉,没有会自动创建
         File externalCacheDir = getExternalCacheDir();
@@ -246,26 +172,19 @@ public class MainActivity extends AppCompatActivity {
 
     private void makeCall() {
 
-        PermissionsManager.getInstance().requestPermissionsIfNecessaryForResult( this, new String[]{Manifest.permission.CALL_PHONE}, new PermissionsResultAction() {
+        PermissionsManager.getInstance().requestPermissionsIfNecessaryForResult(this, new String[]{Manifest.permission.CALL_PHONE}, new PermissionsResultAction() {
             @Override
             public void onGranted() {
-              Toast.makeText(MainActivity.this,"同意",Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "同意", Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onDenied(String permission) {
-                Toast.makeText(MainActivity.this,"拒绝",Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "拒绝", Toast.LENGTH_LONG).show();
 
             }
         });
-
-
-
-
-
         try {
-
-
             Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "17600908294"));
             Log.e(TAG, "makeCall 1: " + ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.CALL_PHONE));
@@ -366,11 +285,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void myList() {
-
         lladapter = new lladapter();
-
-        lv1.setAdapter(lladapter);
-
+        lv.setAdapter(lladapter);
     }
 
     public class lladapter extends BaseAdapter {
@@ -391,10 +307,89 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            TextView textView = new
-                    TextView(MainActivity.this);
-            textView.setText("这是  " + position);
-            return textView;
+            View inflate = View.inflate(MainActivity.this, R.layout.item_menu, null);
+            Button btn_1 = (Button) inflate.findViewById(R.id.btn_1);
+            Button btn_2 = (Button) inflate.findViewById(R.id.btn_2);
+            Button btn_3 = (Button) inflate.findViewById(R.id.btn_3);
+            switch (position + 1) {
+                case 1:
+                    //第1排
+                    nextPage(btn_1, "标题", Activity_1_1.class);
+                    nextPage(btn_2, "标题", Activity_1_2.class);
+                    nextPage(btn_3, "标题", Activity_1_3.class);
+                    break;
+                case 2:
+                    //第2排
+                    nextPage(btn_1, "标题", Activity_2_1.class);
+                    nextPage(btn_2, "标题", Activity_2_2.class);
+                    nextPage(btn_3, "标题", Activity_2_3.class);
+                    break;
+                case 3:
+                    //第3排
+                    nextPage(btn_1, "标题", Activity_3_1.class);
+                    nextPage(btn_2, "标题", Activity_3_2.class);
+                    nextPage(btn_3, "标题", Activity_3_3.class);
+                    break;
+                case 4:
+                    //第4排
+                    nextPage(btn_1, "标题", Activity_1_1.class);
+                    nextPage(btn_2, "标题", Activity_1_2.class);
+                    nextPage(btn_3, "标题", Activity_1_3.class);
+                    break;
+                case 5:
+                    //第5排
+                    nextPage(btn_1, "标题", Activity_1_1.class);
+                    nextPage(btn_2, "标题", Activity_1_2.class);
+                    nextPage(btn_3, "标题", Activity_1_3.class);
+                    break;
+                case 6:
+                    //第6排
+                    nextPage(btn_1, "标题", Activity_1_1.class);
+                    nextPage(btn_2, "标题", Activity_1_2.class);
+                    nextPage(btn_3, "标题", Activity_1_3.class);
+                    break;
+                case 7:
+                    //第7排
+                    nextPage(btn_1, "标题", Activity_1_1.class);
+                    nextPage(btn_2, "标题", Activity_1_2.class);
+                    nextPage(btn_3, "标题", Activity_1_3.class);
+                    break;
+                case 8:
+                    //第8排
+                    nextPage(btn_1, "标题", Activity_1_1.class);
+                    nextPage(btn_2, "标题", Activity_1_2.class);
+                    nextPage(btn_3, "标题", Activity_1_3.class);
+                    break;
+                case 9:
+                    //第9排
+                    nextPage(btn_1, "标题", Activity_1_1.class);
+                    nextPage(btn_2, "标题", Activity_1_2.class);
+                    nextPage(btn_3, "标题", Activity_1_3.class);
+                    break;
+                case 10:
+                    //第10排
+                    nextPage(btn_1, "标题", Activity_1_1.class);
+                    nextPage(btn_2, "标题", Activity_1_2.class);
+                    nextPage(btn_3, "标题", Activity_1_3.class);
+                    break;
+
+            }
+
+            return inflate;
+        }
+
+        private void nextPage(Button btn, String title, final Class clazz) {
+            btn.setText(title);
+            int randomColor = UserUtil.getRandomColor();
+            btn.setBackgroundColor(randomColor);
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, clazz);
+                    MainActivity.this.startActivity(intent);
+                }
+            });
+
         }
     }
 

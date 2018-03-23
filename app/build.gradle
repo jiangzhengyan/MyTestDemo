@@ -43,9 +43,10 @@ dependencies {
     compile files('libs/youmneg/flame.jar')
     compile files('libs/xutils.jar')
     compile files('libs/xu111tils.jar')
-    compile ('uk.co.chrisjenx:calligraphy:2.2.0') {
+    compile('uk.co.chrisjenx:calligraphy:2.2.0') {
         exclude group: 'com.android.support:design'
     }
+    compile 'com.jakewharton:butterknife:7.0.1'
 
 
 }
