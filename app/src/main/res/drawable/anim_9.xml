@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+                xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/ic_like_0" android:duration="50"/>
+    <item android:drawable="@drawable/ic_like_1" android:duration="50"/>
+    <item android:drawable="@drawable/ic_like_2" android:duration="50"/>
+    <item android:drawable="@drawable/ic_like_3" android:duration="50"/>
+    <item android:drawable="@drawable/ic_like_4" android:duration="50"/>
+    <item android:drawable="@drawable/ic_like_5" android:duration="50"/>
+    <item android:drawable="@drawable/ic_like_6" android:duration="50"/>
+    <item android:drawable="@drawable/ic_like_7" android:duration="50"/>
+    <item android:drawable="@drawable/ic_like_8" android:duration="50"/>
+    <item android:drawable="@drawable/ic_like_9" android:duration="50"/>
+    
+    
+    <item android:drawable="@drawable/ic_unlike_0" android:duration="50"/>
+    <item android:drawable="@drawable/ic_unlike_1" android:duration="50"/>
+    <item android:drawable="@drawable/ic_unlike_2" android:duration="50"/>
+    <item android:drawable="@drawable/ic_unlike_3" android:duration="50"/>
+    <item android:drawable="@drawable/ic_unlike_4" android:duration="50"/>
+    <item android:drawable="@drawable/ic_unlike_5" android:duration="50"/>
+    <item android:drawable="@drawable/ic_unlike_6" android:duration="50"/>
+    <item android:drawable="@drawable/ic_unlike_7" android:duration="50"/>
+    <item android:drawable="@drawable/ic_unlike_8" android:duration="50"/>
+    <item android:drawable="@drawable/ic_unlike_9" android:duration="50"/>
+
+
+</animation-list>
