@@ -11,10 +11,18 @@
     >
 
     <EditText
-        android:id="@+id/et_chongmoney"
+        android:id="@+id/et_delay_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
+        android:hint="请输入延迟时间(s)"
+        android:inputType="number"
+        />
+    <EditText
+        android:id="@+id/et_chongmoney"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
         android:hint="请输入金额"
         android:inputType="number"
         />
