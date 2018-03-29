@@ -468,6 +468,18 @@ public class UserUtil {
         textView.setGravity(Gravity.CENTER);
         toast.show();
     }
+    public static void showToastCenter(Context mContext, String msg ) {
+        if (toast == null) {
+            toast = Toast.makeText(mContext, msg, Toast.LENGTH_SHORT);
+        }else {
+            toast.cancel();//关闭吐 司显示
+
+            toast = Toast.makeText(mContext, msg, Toast.LENGTH_SHORT);
+        }
+        toast.setGravity(Gravity.CENTER, 0, 0);
+
+        toast.show();
+    }
 
     /**
      * 输入框焦点变化的监听方法,是否显示后面的情况按钮

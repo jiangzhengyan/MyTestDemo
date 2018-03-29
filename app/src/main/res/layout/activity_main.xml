@@ -14,5 +14,5 @@
         android:id="@+id/lv"
         android:divider="@color/gray"
         android:dividerHeight="1dp"
-        ></ListView>
+        />
 </LinearLayout>

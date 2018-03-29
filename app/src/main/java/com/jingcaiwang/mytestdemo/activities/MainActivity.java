@@ -400,7 +400,13 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
             mediaPlayer.setOnCompletionListener(beepListener);
 
-            AssetFileDescriptor file = getResources().openRawResourceFd(R.raw.qq);
+            AssetFileDescriptor file = null;
+            try {
+                file = getAssets().openFd("tts_0.mp3");
+            } catch (IOException e) {
+
+            }
+//            AssetFileDescriptor file = getResources().openRawResourceFd(R.raw.qq);
             try {
                 mediaPlayer.setDataSource(file.getFileDescriptor(), file.getStartOffset(), file.getLength());
                 file.close();
@@ -410,6 +416,7 @@ public class MainActivity extends AppCompatActivity {
                 mediaPlayer = null;
             }
         }
+        playBeepSoundAndVibrate();
     }
 
     private void playBeepSoundAndVibrate() {
