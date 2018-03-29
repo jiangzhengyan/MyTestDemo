@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -27,6 +28,8 @@ import butterknife.OnClick;
 public class Activity_1_2 extends AppCompatActivity {
     @Bind(R.id.et_chongmoney)
     EditText et_chongmoney;
+    @Bind(R.id.et_delay_time)
+    EditText et_delay_time;
     @Bind(R.id.tv_pay)
     TextView tv_pay;
     private MediaPlayer mediaPlayer;
@@ -85,19 +88,38 @@ public class Activity_1_2 extends AppCompatActivity {
         fileLists.add(am.openRawResourceFd(R.raw.tts_yuan));//23
     }
 
+    long delay = 1 / 1000l;
+    Handler mHandler = new Handler();
+
     @OnClick({R.id.tv_pay})
     public void moneyOnClick(View view) {
         switch (view.getId()) {
             case R.id.tv_pay:
-                //initSoundData();
-                mediaPlayer = null;
-                tempIndex = 0;
-                startMoney();
+                try {
+                    String s = et_delay_time.getText().toString();
+                    delay = Long.parseLong(s);
+                } catch (Exception e) {
+                    delay = 1 / 1000l;
+                }
+
+                if (mHandler!=null){
+                    mHandler.removeCallbacks(mRunnable);
+                }
+                mHandler.postDelayed(mRunnable, delay * 1000);
+
                 break;
 
         }
     }
-
+    Runnable mRunnable=new Runnable() {
+        @Override
+        public void run() {
+            //initSoundData();
+            mediaPlayer = null;
+            tempIndex = 0;
+            startMoney();
+        }
+    };
     //位数
     private void startMoney() {
         int amountLength = amount.length();
@@ -172,17 +194,17 @@ public class Activity_1_2 extends AppCompatActivity {
         // 1000 0111
         // 1000 1111
 
-        if ((amountChars[4])==('0') && (amountChars[5])==('0') && (amountChars[6])==('0')&&(amountChars[7])==('0') ) {
+        if ((amountChars[4]) == ('0') && (amountChars[5]) == ('0') && (amountChars[6]) == ('0') && (amountChars[7]) == ('0')) {
             //1000 0000
-        } else if (  (amountChars[4])==('0') && (amountChars[5])==('0')&&(amountChars[6])==('0') ) {
+        } else if ((amountChars[4]) == ('0') && (amountChars[5]) == ('0') && (amountChars[6]) == ('0')) {
             //1000 0001
             fileIndexs.add(0);
             money_1(fileIndexs, Integer.parseInt((amountChars[7] + "")));
-        } else if ((amountChars[4])==('0') && (amountChars[5])==('0')) {
+        } else if ((amountChars[4]) == ('0') && (amountChars[5]) == ('0')) {
             //1000 0011
             fileIndexs.add(0);
             money_2(fileIndexs, amountChars[6] + "" + amountChars[7]);
-        } else if ((amountChars[4])==('0')) {
+        } else if ((amountChars[4]) == ('0')) {
             //1000 0111
             fileIndexs.add(0);
             money_3(fileIndexs, amountChars[5] + "" + amountChars[6] + "" + amountChars[7]);
@@ -191,6 +213,7 @@ public class Activity_1_2 extends AppCompatActivity {
         }
 
     }
+
     /**
      * 7位数
      *
@@ -210,17 +233,17 @@ public class Activity_1_2 extends AppCompatActivity {
         // 100 0111
         // 100 1111
 
-        if ((amountChars[3])==('0') && (amountChars[4])==('0') && (amountChars[5])==('0') && (amountChars[6])==('0')) {
+        if ((amountChars[3]) == ('0') && (amountChars[4]) == ('0') && (amountChars[5]) == ('0') && (amountChars[6]) == ('0')) {
             //100 0000
-        } else if ((amountChars[3])==('0') && (amountChars[4])==('0') && (amountChars[5])==('0')) {
+        } else if ((amountChars[3]) == ('0') && (amountChars[4]) == ('0') && (amountChars[5]) == ('0')) {
             //100 0001
             fileIndexs.add(0);
             money_1(fileIndexs, Integer.parseInt((amountChars[6] + "")));
-        } else if ((amountChars[3])==('0') && (amountChars[4])==('0')) {
+        } else if ((amountChars[3]) == ('0') && (amountChars[4]) == ('0')) {
             //100 0011
             fileIndexs.add(0);
             money_2(fileIndexs, amountChars[5] + "" + amountChars[6]);
-        } else if ((amountChars[3])==('0')) {
+        } else if ((amountChars[3]) == ('0')) {
             //100 0111
             fileIndexs.add(0);
             money_3(fileIndexs, amountChars[4] + "" + amountChars[5] + "" + amountChars[6]);
@@ -250,17 +273,17 @@ public class Activity_1_2 extends AppCompatActivity {
         // 10 0111
         // 10 1111
 
-        if ((amountChars[2])==('0') && (amountChars[3])==('0') && (amountChars[4])==('0') && (amountChars[5])==('0')) {
+        if ((amountChars[2]) == ('0') && (amountChars[3]) == ('0') && (amountChars[4]) == ('0') && (amountChars[5]) == ('0')) {
             //10 0000
-        } else if ((amountChars[2])==('0') && (amountChars[3])==('0') && (amountChars[4])==('0')) {
+        } else if ((amountChars[2]) == ('0') && (amountChars[3]) == ('0') && (amountChars[4]) == ('0')) {
             //10 0001
             fileIndexs.add(0);
             money_1(fileIndexs, Integer.parseInt((amountChars[5] + "")));
-        } else if ((amountChars[2])==('0') && (amountChars[3])==('0')) {
+        } else if ((amountChars[2]) == ('0') && (amountChars[3]) == ('0')) {
             //10 0011
             fileIndexs.add(0);
             money_2(fileIndexs, amountChars[4] + "" + amountChars[5]);
-        } else if ((amountChars[2])==('0')) {
+        } else if ((amountChars[2]) == ('0')) {
             //10 0111
             fileIndexs.add(0);
             money_3(fileIndexs, amountChars[3] + "" + amountChars[4] + "" + amountChars[5]);
@@ -283,18 +306,18 @@ public class Activity_1_2 extends AppCompatActivity {
 
         //10000 10001   10011  10111 11101  11111
 
-        if ((amountChars[1])==('0') && (amountChars[2])==('0') && (amountChars[3])==('0') && (amountChars[4])==('0')) {
+        if ((amountChars[1]) == ('0') && (amountChars[2]) == ('0') && (amountChars[3]) == ('0') && (amountChars[4]) == ('0')) {
             //10000
-        } else if ((amountChars[1])==('0') && (amountChars[2])==('0') && (amountChars[3])==('0')) {
+        } else if ((amountChars[1]) == ('0') && (amountChars[2]) == ('0') && (amountChars[3]) == ('0')) {
             //10001
             fileIndexs.add(0);
             money_1(fileIndexs, Integer.parseInt((amountChars[4] + "")));
 //            money_1(fileIndexs, Integer.parseInt(amountChars[2] + ""));
-        } else if ((amountChars[1])==('0') && (amountChars[2])==('0')) {
+        } else if ((amountChars[1]) == ('0') && (amountChars[2]) == ('0')) {
             //10011
             fileIndexs.add(0);
             money_2(fileIndexs, amountChars[3] + "" + amountChars[4]);
-        } else if ((amountChars[1])==('0')) {
+        } else if ((amountChars[1]) == ('0')) {
             //10111
             fileIndexs.add(0);
             money_3(fileIndexs, amountChars[2] + "" + amountChars[3] + "" + amountChars[4]);
@@ -317,13 +340,14 @@ public class Activity_1_2 extends AppCompatActivity {
         fileIndexs.add(21);
 
         //1000 1001   1011  1101  1111
+        //0001 0011 0111 0000
 
-        if ((amountChars[1])==('0') && (amountChars[2])==('0') && (amountChars[3])==('0')) {
+        if ((amountChars[1]) == ('0') && (amountChars[2]) == ('0') && (amountChars[3]) == ('0')) {
 //            money_1(fileIndexs, Integer.parseInt(amountChars[2] + ""));
-        } else if ((amountChars[1])==('0') && (amountChars[2])==('0')) {
+        } else if ((amountChars[1]) == ('0') && (amountChars[2]) == ('0')) {
             fileIndexs.add(0);
             money_1(fileIndexs, Integer.parseInt((amountChars[3] + "")));
-        } else if ((amountChars[1])==('0')) {
+        } else if ((amountChars[1]) == ('0')) {
             fileIndexs.add(0);
             money_2(fileIndexs, amountChars[2] + "" + amountChars[3]);
         } else {
@@ -343,9 +367,9 @@ public class Activity_1_2 extends AppCompatActivity {
         fileIndexs.add(13);
         //100
         //101
-        if ((amountChars[1])==('0') && (amountChars[2])==('0')) {
+        if ((amountChars[1]) == ('0') && (amountChars[2]) == ('0')) {
             //100
-        } else if ((amountChars[1])==('0') && (amountChars[2])==('0')) {
+        } else if ((amountChars[1]) == ('0') && (amountChars[2]) == ('0')) {
             //101
             fileIndexs.add(0);
             money_1(fileIndexs, Integer.parseInt(amountChars[2] + ""));
@@ -363,10 +387,10 @@ public class Activity_1_2 extends AppCompatActivity {
         char[] amountChars = twoNum.toCharArray();
         int firstNum = Integer.parseInt((amountChars[0] + ""));
 //        if (firstNum!=1){
-            money_1(fileIndexs, Integer.parseInt((amountChars[0] + "")));
+        money_1(fileIndexs, Integer.parseInt((amountChars[0] + "")));
 //        }
         fileIndexs.add(18);
-        if ((amountChars[1])!=('0')) {
+        if ((amountChars[1]) != ('0')) {
             money_1(fileIndexs, Integer.parseInt((amountChars[1] + "")));
         }
 
