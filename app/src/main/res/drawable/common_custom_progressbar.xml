@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list  xmlns:android="http://schemas.android.com/apk/res/android"
+        android:duration="333"
+        android:fromDegrees="0"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toDegrees="360">
+    <!--  -->
+    <!--<shape-->
+        <!--android:innerRadiusRatio="4"-->
+        <!--android:shape="ring"-->
+        <!--android:thicknessRatio="33"-->
+        <!--android:useLevel="false">-->
+
+        <!--<gradient-->
+            <!--android:centerColor="#DBDBDB"-->
+            <!--android:centerY="0.5"-->
+            <!--android:endColor="#CDCDB4"-->
+            <!--android:startColor="#FCFCFC"-->
+            <!--android:type="sweep"-->
+            <!--android:useLevel="false"/>-->
+    <!--</shape>-->
+
+    <item android:drawable="@drawable/common_loading_1" android:duration="50"/>
+    <item android:drawable="@drawable/common_loading_2" android:duration="50"/>
+    <item android:drawable="@drawable/common_loading_3" android:duration="50"/>
+    <item android:drawable="@drawable/common_loading_4" android:duration="50"/>
+    <item android:drawable="@drawable/common_loading_5" android:duration="50"/>
+    <item android:drawable="@drawable/common_loading_6" android:duration="50"/>
+    <item android:drawable="@drawable/common_loading_7" android:duration="50"/>
+    <item android:drawable="@drawable/common_loading_8" android:duration="50"/>
+    <item android:drawable="@drawable/common_loading_9" android:duration="50"/>
+    <item android:drawable="@drawable/common_loading_10" android:duration="50"/>
+    <item android:drawable="@drawable/common_loading_11" android:duration="50"/>
+</animation-list >

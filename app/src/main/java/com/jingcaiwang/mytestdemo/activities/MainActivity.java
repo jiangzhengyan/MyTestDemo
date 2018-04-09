@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -23,8 +25,10 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jingcaiwang.mytestdemo.R;
@@ -33,7 +37,6 @@ import com.jingcaiwang.mytestdemo.utils.UserUtil;
 import com.jingcaiwang.mytestdemo.utils.permission.PermissionsManager;
 import com.jingcaiwang.mytestdemo.utils.permission.PermissionsResultAction;
 import com.jingcaiwang.mytestdemo.views.CustomNoScrollWebView;
-import com.lidroid.mutils.utils.Utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -46,13 +49,17 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import de.keyboardsurfer.android.widget.crouton.Configuration;
-import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 import okhttp3.Request;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
+    @Bind(R.id.tv)
+    TextView tv;
     private CustomNoScrollWebView web_view;
     private RelativeLayout rel;
     private ListView lv;
@@ -64,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
     public static final Configuration confLong = new Configuration.Builder().setDuration(6000).build();
     private MainActivity.lladapter lladapter;
 
+    LinearLayout ll_repair_index;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,41 +82,81 @@ public class MainActivity extends AppCompatActivity {
 //        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);// 去掉信息栏
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         lv = (ListView) findViewById(R.id.lv);
+        ll_repair_index = (LinearLayout) findViewById(R.id.ll_repair_index);
+
+        repair();
+        repair1();
+    }
+
+    private void repair1() {
+
+        if (ll_repair_index != null) {
+            ll_repair_index.removeAllViews();
+        }
 
 
-        Crouton.makeText(this, "" + Utils.getUtils(), DEFAULT, R.layout.activity_main).setConfiguration(conf).show();
-//
-        myList();
+        for (int i = 0; i < 6; i++) {
+            View repairStatusLayout = View.inflate(this, R.layout.repair_status_layout, null);
+            TextView  tv_status = (TextView) repairStatusLayout.findViewById(R.id.tv_status_0);
+            TextView  tv_time = (TextView) repairStatusLayout.findViewById(R.id.tv_status_0_time);
+            tv_status.setText("状态+"+i);
+            tv_time.setText("时间+"+i);
 
+            ll_repair_index.addView(repairStatusLayout);
+        }
 
-        getPhoneDeviceInfo();
+    }
 
+    private void repair() {
 
+        LinearLayout linearLayout = new LinearLayout(this);
+        linearLayout.setBackgroundColor(Color.GREEN);
+        RelativeLayout relativeLayout = new RelativeLayout(this);
+        View view = new View(this);
+        RelativeLayout.LayoutParams paramsView = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 10);
+        paramsView.addRule(RelativeLayout.CENTER_IN_PARENT);
+        view.setBackgroundColor(Color.GRAY);
+        view.setLayoutParams(paramsView);
+        view.invalidate();
+
+        relativeLayout.addView(view);
+        TextView textStatus = new TextView(this);
+        textStatus.setText("这是文字");
+        textStatus.setBackgroundResource(R.drawable.shape_repair_status_bg_2);
+        relativeLayout.addView(textStatus);
+
+        linearLayout.addView(relativeLayout);
+        TextView textTime = new TextView(this);
+        textStatus.setText("20182222");
+        linearLayout.addView(textTime);
+
+        ll_repair_index.addView(linearLayout);
     }
 
     private String getPhoneDeviceInfo() {
 
         //获取手机型号：OPPO R11
-        String MODEL = android.os.Build.MODEL;
+        String MODEL = Build.MODEL;
         // 获取手机厂商：OPPO
-        String MANUFACTURER = android.os.Build.MANUFACTURER;
+        String MANUFACTURER = Build.MANUFACTURER;
         //           arm64-v8a
-        String CPU_ABI = android.os.Build.CPU_ABI;
+        String CPU_ABI = Build.CPU_ABI;
         //OPPO/R11/R11:7.1.1/NMF26X/1506793082:user/release-keys
-        String FINGERPRINT = android.os.Build.FINGERPRINT;
+        String FINGERPRINT = Build.FINGERPRINT;
         //d6b6041
-        String SERIAL = android.os.Build.SERIAL;
+        String SERIAL = Build.SERIAL;
         StringBuilder sb = new StringBuilder();
-        sb.append("Device infomation :" )
-         .append("\nMODEL = "+MODEL)
-                .append("\nMANUFACTURER = "+MANUFACTURER)
-                .append("\nCPU_ABI = "+CPU_ABI)
-                .append("\nFINGERPRINT = " +FINGERPRINT)
-                .append("\nSERIAL = "+SERIAL)
+        sb.append("Device infomation :")
+                .append("\nMODEL = " + MODEL)
+                .append("\nMANUFACTURER = " + MANUFACTURER)
+                .append("\nCPU_ABI = " + CPU_ABI)
+                .append("\nFINGERPRINT = " + FINGERPRINT)
+                .append("\nSERIAL = " + SERIAL)
                 .append("\n");
-        Log.e(TAG, "getPhoneInfo: "+sb );
+        Log.e(TAG, "getPhoneInfo: " + sb);
 
         Field[] fields = Build.class.getFields();
         for (Field f : fields) {
@@ -117,12 +166,12 @@ public class MainActivity extends AppCompatActivity {
 //       String brand = f.get("BRAND").toString(); //Xiaomi
 //       String model = f.get("MODEL").toString(); //Redmi Note 3
 
-                Log.e(TAG,  "key:" + name + ":value:" + value);
+                Log.e(TAG, "key:" + name + ":value:" + value);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
         }
-        return  sb.toString();
+        return sb.toString();
     }
 
 
@@ -251,7 +300,7 @@ public class MainActivity extends AppCompatActivity {
             conn.setDoInput(true);
             conn.connect();
             InputStream is = conn.getInputStream();
-            bitmap = android.graphics.BitmapFactory.decodeStream(is);
+            bitmap = BitmapFactory.decodeStream(is);
             is.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -287,6 +336,10 @@ public class MainActivity extends AppCompatActivity {
     private void myList() {
         lladapter = new lladapter();
         lv.setAdapter(lladapter);
+    }
+
+    @OnClick(R.id.tv)
+    public void onViewClicked() {
     }
 
     public class lladapter extends BaseAdapter {
@@ -490,10 +543,10 @@ public class MainActivity extends AppCompatActivity {
                         View.MeasureSpec.UNSPECIFIED);
                 int h = View.MeasureSpec.makeMeasureSpec(0,
                         View.MeasureSpec.UNSPECIFIED);
-                android.util.Log.e(TAG, "onPageFinished: " + url);
-                android.util.Log.e(TAG, "onPageFinished: " + w + "    +" + h);
-                android.util.Log.e(TAG, "onPageFinished: " + view.getHeight());
-                android.util.Log.e(TAG, "onPageFinished: " + view.getChildCount());
+                Log.e(TAG, "onPageFinished: " + url);
+                Log.e(TAG, "onPageFinished: " + w + "    +" + h);
+                Log.e(TAG, "onPageFinished: " + view.getHeight());
+                Log.e(TAG, "onPageFinished: " + view.getChildCount());
                 //重新测量
                 web_view.measure(w, h);
                 webSetting.setBlockNetworkImage(false);

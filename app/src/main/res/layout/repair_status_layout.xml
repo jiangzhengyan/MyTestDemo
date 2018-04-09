@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="77dp"
+            android:layout_height="1dp"
+            android:layout_centerInParent="true"
+            android:background="#999"/>
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/shape_repair_status_bg_2"
+            android:gravity="center"
+            android:text="已提交"
+            android:textColor="#fff"
+            android:textSize="14sp"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_status_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center_horizontal"
+        android:lines="2"
+        android:text="2018-12-23"
+        android:textColor="#7f7f7f"
+        android:textSize="12sp"/>
+</LinearLayout>
