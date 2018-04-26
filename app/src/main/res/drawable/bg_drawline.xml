@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <!-- 描边-->
+    <stroke android:width="2dp" android:color="#1a3ec0"></stroke>
+    <!-- 填充颜色 -->
+    <solid android:color="#fff"></solid>
+    <!-- 圆角 -->
+    <corners android:radius="10dp"></corners>
+</shape>
+ 

@@ -14,6 +14,7 @@
     <!--android:indeterminate="false"-->
     <!--android:indeterminateDuration="900"-->
     <!--android:indeterminateDrawable="@drawable/anim_7"/>-->
+
     <HorizontalScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,13 +33,6 @@
 
     </HorizontalScrollView>
 
-    <TextView
-        android:id="@+id/tv"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
-        android:background="@color/gray"/>
 
     <ListView
         android:id="@+id/lv"

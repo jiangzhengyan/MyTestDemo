@@ -16,6 +16,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +28,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -49,7 +53,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import de.keyboardsurfer.android.widget.crouton.Configuration;
@@ -58,8 +61,7 @@ import okhttp3.Request;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    @Bind(R.id.tv)
-    TextView tv;
+
     private CustomNoScrollWebView web_view;
     private RelativeLayout rel;
     private ListView lv;
@@ -87,9 +89,96 @@ public class MainActivity extends AppCompatActivity {
         lv = (ListView) findViewById(R.id.lv);
         ll_repair_index = (LinearLayout) findViewById(R.id.ll_repair_index);
 
+
         repair();
         repair1();
+        myList();
+
     }
+
+
+    /**
+     * 金额的监听
+     */
+    private CharSequence mTempText;
+
+    private void inputNumberListener(final EditText editNumber,
+                                     final Button btnConfirm,
+                                     final String maxLimitAmount,
+                                     final int dotBeforeLimit,
+                                     final int dotAfterLimit) {
+        mTempText = "";
+        editNumber.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mTempText = s;
+                if (TextUtils.isEmpty(maxLimitAmount)) {
+//                    makeText("网络连接失败,请重新扫描");
+                    return;
+                }
+                if (TextUtils.isEmpty(s)) {
+                    btnConfirm.setEnabled(false);
+                } else if (".".equals(s.toString())) {
+                    btnConfirm.setEnabled(false);
+
+                } else {
+                    double parseDouble = Double.parseDouble(UserUtil.remain_dot_2(s.toString()));
+                    int p = (int) (parseDouble * 100);
+                    if (p == 0) {
+                        btnConfirm.setEnabled(false);
+                    } else if (p > Double.parseDouble(maxLimitAmount) * 100) {
+                        btnConfirm.setEnabled(false);
+                        Toast.makeText(MainActivity.this, "最大金额不能超过" + maxLimitAmount + "元", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // amount = Integer.toString(p);
+                        btnConfirm.setEnabled(true);
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                int mSelectionStart = editNumber.getSelectionStart();
+                int mSelectionEnd = editNumber.getSelectionEnd();
+                String s1 = mTempText.toString();
+                if (s1.contains(".")) {
+                    String[] split = s1.split("\\.");
+                    int splitsize = split.length;
+                    if (splitsize == 0) {
+                    } else if (splitsize == 1) {
+                        //  情况   121.
+                        String ss0 = split[0];//点前面
+                        if (ss0.length() > dotBeforeLimit) {
+                            s.delete(mSelectionStart - 1, mSelectionEnd);
+                        }
+                    } else if (splitsize == 2) {
+                        //  情况   121.12或者 .12
+                        String ss0 = split[0];//点前面
+                        String ss1 = split[1];//点后面
+                        if (ss0.length() > dotBeforeLimit) {
+                            s.delete(mSelectionStart - 1, mSelectionEnd);
+                        }
+                        if (ss1.length() > dotAfterLimit) {
+                            s.delete(mSelectionStart - 1, mSelectionEnd);
+                        }
+                    }
+                } else {
+                    if (s1.length() > dotBeforeLimit) {
+                        s.delete(mSelectionStart - 1, mSelectionEnd);
+                    }
+                }
+            }
+        });
+    }
+
+
+    EditText et_number;
 
     private void repair1() {
 
@@ -97,16 +186,6 @@ public class MainActivity extends AppCompatActivity {
             ll_repair_index.removeAllViews();
         }
 
-
-        for (int i = 0; i < 6; i++) {
-            View repairStatusLayout = View.inflate(this, R.layout.repair_status_layout, null);
-            TextView  tv_status = (TextView) repairStatusLayout.findViewById(R.id.tv_status_0);
-            TextView  tv_time = (TextView) repairStatusLayout.findViewById(R.id.tv_status_0_time);
-            tv_status.setText("状态+"+i);
-            tv_time.setText("时间+"+i);
-
-            ll_repair_index.addView(repairStatusLayout);
-        }
 
     }
 
@@ -338,9 +417,6 @@ public class MainActivity extends AppCompatActivity {
         lv.setAdapter(lladapter);
     }
 
-    @OnClick(R.id.tv)
-    public void onViewClicked() {
-    }
 
     public class lladapter extends BaseAdapter {
         @Override
