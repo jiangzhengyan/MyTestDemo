@@ -54,7 +54,6 @@ import java.net.URL;
 import java.util.HashMap;
 
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import de.keyboardsurfer.android.widget.crouton.Configuration;
 import de.keyboardsurfer.android.widget.crouton.Style;
 import okhttp3.Request;
@@ -286,6 +285,7 @@ public class MainActivity extends AppCompatActivity {
      * 请求授权
      */
     private void requestPermission() {
+
 
 //        if (ContextCompat.checkSelfPermission(this,
 //                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) { //表示未授权时

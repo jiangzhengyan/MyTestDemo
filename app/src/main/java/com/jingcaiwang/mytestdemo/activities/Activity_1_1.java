@@ -28,6 +28,7 @@ public class Activity_1_1 extends AppCompatActivity {
 
     private void anim() {
 
+
         iv_anim = (ImageView) findViewById(R.id.iv_anim);
 
     }

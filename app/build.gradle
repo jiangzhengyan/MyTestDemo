@@ -47,6 +47,4 @@ dependencies {
         exclude group: 'com.android.support:design'
     }
     compile 'com.jakewharton:butterknife:7.0.1'
-
-
 }
