@@ -20,6 +20,7 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -35,6 +36,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.jingcaiwang.mytestdemo.R;
 import com.jingcaiwang.mytestdemo.network.OKHttpManager;
 import com.jingcaiwang.mytestdemo.utils.UserUtil;
@@ -52,6 +55,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import de.keyboardsurfer.android.widget.crouton.Configuration;
@@ -93,6 +97,22 @@ public class MainActivity extends AppCompatActivity {
         repair1();
         myList();
 
+        jiexi();
+
+    }
+
+    private void jiexi() {
+        String string="{\"resultCode\":0,\"resultValue\":[null]}";
+
+        JSONObject jsonObject = JSONObject.parseObject(string);
+        String resultValue = jsonObject.getString("resultValue");
+        Log.e(TAG, "jiexi: "+resultValue  );
+        List<Modes> modes = JSONArray.parseArray(resultValue, Modes.class);
+        for (int i = 0; i < modes.size(); i++) {
+            //if (modes.get(i)==null)
+            Log.e(TAG, "jiexi:12121212121 "+modes.get(i) );
+
+        }
     }
 
 
@@ -421,6 +441,7 @@ public class MainActivity extends AppCompatActivity {
     public class lladapter extends BaseAdapter {
         @Override
         public int getCount() {
+            Log.e(TAG, "getCount===========: " );
             return 66;
         }
 
