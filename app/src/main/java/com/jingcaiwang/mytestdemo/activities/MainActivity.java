@@ -1,6 +1,8 @@
 package com.jingcaiwang.mytestdemo.activities;
 
 import android.Manifest;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -40,6 +42,8 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.jingcaiwang.mytestdemo.R;
 import com.jingcaiwang.mytestdemo.network.OKHttpManager;
+import com.jingcaiwang.mytestdemo.utils.Lambdatest;
+import com.jingcaiwang.mytestdemo.utils.MyLifecycleHandler;
 import com.jingcaiwang.mytestdemo.utils.UserUtil;
 import com.jingcaiwang.mytestdemo.utils.permission.PermissionsManager;
 import com.jingcaiwang.mytestdemo.utils.permission.PermissionsResultAction;
@@ -77,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
     private MainActivity.lladapter lladapter;
 
     LinearLayout ll_repair_index;
+    private TextView tv_ani;
 
 
     @Override
@@ -91,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
         lv = (ListView) findViewById(R.id.lv);
         ll_repair_index = (LinearLayout) findViewById(R.id.ll_repair_index);
+        tv_ani = (TextView) findViewById(R.id.tv_ani);
 
 
         repair();
@@ -98,19 +104,59 @@ public class MainActivity extends AppCompatActivity {
         myList();
 
         jiexi();
+    new Lambdatest();
+
+    }
+
+    public  void anim(View view){
+        ObjectAnimator moveIn = ObjectAnimator.ofFloat(tv_ani, "scaleX", 1f, 3f);
+        ObjectAnimator moveIn1 = ObjectAnimator.ofFloat(tv_ani, "scaleY", 1f, 3f);
+        ObjectAnimator rotate = ObjectAnimator.ofFloat(tv_ani, "rotation", 0f, 360f);
+        ObjectAnimator fadeInOut = ObjectAnimator.ofFloat(tv_ani, "alpha", 1f, 0f, 1f);
+        AnimatorSet animSet = new AnimatorSet();
+        animSet.play(rotate).with(fadeInOut).with(moveIn).with(moveIn1);
+        animSet.setDuration(2000);
+        animSet.start();
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        boolean applicationInForeground = MyLifecycleHandler.isApplicationInForeground();
+        Toast.makeText(this,"onResume前台运行?  "+applicationInForeground,Toast.LENGTH_LONG).show();
+        Log.e(TAG, "onResume: " +"onResume前台运行?  "+applicationInForeground);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        boolean applicationInForeground = MyLifecycleHandler.isApplicationInForeground();
+      Toast.makeText(this,"onStop前台运行?  "+applicationInForeground,Toast.LENGTH_LONG).show();
+        Log.e(TAG, "onStop: " +"onStop前台运行?  "+applicationInForeground);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        boolean applicationInForeground = MyLifecycleHandler.isApplicationInForeground();
+
+        Log.e(TAG, "onPause: "+"onPause前台运行?  "+applicationInForeground );
+
+        Toast.makeText(this,"onPause前台运行?  "+applicationInForeground,Toast.LENGTH_LONG).show();
 
     }
 
     private void jiexi() {
-        String string="{\"resultCode\":0,\"resultValue\":[null]}";
+        String string = "{\"resultCode\":0,\"resultValue\":[null]}";
 
         JSONObject jsonObject = JSONObject.parseObject(string);
         String resultValue = jsonObject.getString("resultValue");
-        Log.e(TAG, "jiexi: "+resultValue  );
+        Log.e(TAG, "jiexi: " + resultValue);
         List<Modes> modes = JSONArray.parseArray(resultValue, Modes.class);
         for (int i = 0; i < modes.size(); i++) {
             //if (modes.get(i)==null)
-            Log.e(TAG, "jiexi:12121212121 "+modes.get(i) );
+            Log.e(TAG, "jiexi:12121212121 " + modes.get(i));
 
         }
     }
@@ -431,7 +477,7 @@ public class MainActivity extends AppCompatActivity {
         intent.setData(uri);
         context.sendBroadcast(intent);
     }
-
+int pppp=0;
     private void myList() {
         lladapter = new lladapter();
         lv.setAdapter(lladapter);
@@ -441,7 +487,7 @@ public class MainActivity extends AppCompatActivity {
     public class lladapter extends BaseAdapter {
         @Override
         public int getCount() {
-            Log.e(TAG, "getCount===========: " );
+            Log.e(TAG, "getCount===========: ");
             return 66;
         }
 
@@ -457,6 +503,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
+            Log.e(TAG, "getView: "+(pppp++) );
             View inflate = View.inflate(MainActivity.this, R.layout.item_menu, null);
             Button btn_1 = (Button) inflate.findViewById(R.id.btn_1);
             Button btn_2 = (Button) inflate.findViewById(R.id.btn_2);

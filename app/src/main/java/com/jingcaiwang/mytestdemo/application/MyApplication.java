@@ -7,8 +7,10 @@ import android.content.pm.PackageManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
 
+import com.jingcaiwang.mytestdemo.utils.MyLifecycleHandler;
 import com.jingcaiwang.mytestdemo.utils.ScreenUtils;
 
 import java.util.Iterator;
@@ -44,8 +46,10 @@ public class MyApplication extends Application {
         instance = this;
         int pid = android.os.Process.myPid();
         String processAppName = getAppName(pid);
+        registerActivityLifecycleCallbacks(new MyLifecycleHandler());
         if (processAppName == null || !processAppName.equalsIgnoreCase("com.jingkai.worker")) {
-            return;
+            //Toast.makeText(this,"--"+processAppName,Toast.LENGTH_LONG).show();
+           // return;
         }
 
     }

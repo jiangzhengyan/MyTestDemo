@@ -15,6 +15,32 @@
     <!--android:indeterminateDuration="900"-->
     <!--android:indeterminateDrawable="@drawable/anim_7"/>-->
 
+    <Button
+        android:onClick="anim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dianji"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00000"
+
+
+        android:background="@color/colorPrimary"
+        />   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="你好"
+        android:id="@+id/tv_ani"
+
+        android:background="@color/colorAccent"
+        /></LinearLayout>
+
     <HorizontalScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
