@@ -10,6 +10,7 @@ import android.content.res.AssetFileDescriptor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -22,10 +23,11 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.Display;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -34,6 +36,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,6 +51,8 @@ import com.jingcaiwang.mytestdemo.utils.UserUtil;
 import com.jingcaiwang.mytestdemo.utils.permission.PermissionsManager;
 import com.jingcaiwang.mytestdemo.utils.permission.PermissionsResultAction;
 import com.jingcaiwang.mytestdemo.views.CustomNoScrollWebView;
+
+import org.json.JSONException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -82,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
     LinearLayout ll_repair_index;
     private TextView tv_ani;
-
+    LinearLayout mRootview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,19 +101,34 @@ public class MainActivity extends AppCompatActivity {
 
         lv = (ListView) findViewById(R.id.lv);
         ll_repair_index = (LinearLayout) findViewById(R.id.ll_repair_index);
+        mRootview = (LinearLayout) findViewById(R.id.lyaout_fenshi);
         tv_ani = (TextView) findViewById(R.id.tv_ani);
 
-
-        repair();
         repair1();
         myList();
 
         jiexi();
-    new Lambdatest();
-
+        new Lambdatest();
+        initPopu();
     }
 
-    public  void anim(View view){
+    private void initPopu() {
+        LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.layout_car_popu, mRootview, false);
+        popup = new PopupWindow(layout, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT, true);
+        popup.setBackgroundDrawable((new BitmapDrawable()));
+        popup.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+        popup.setAnimationStyle(R.style.mypopwindow_anim_style);
+        popup.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+
+            }
+        });
+    }
+
+    private PopupWindow popup;
+
+    public void anim(View view) {
         ObjectAnimator moveIn = ObjectAnimator.ofFloat(tv_ani, "scaleX", 1f, 3f);
         ObjectAnimator moveIn1 = ObjectAnimator.ofFloat(tv_ani, "scaleY", 1f, 3f);
         ObjectAnimator rotate = ObjectAnimator.ofFloat(tv_ani, "rotation", 0f, 360f);
@@ -117,14 +137,29 @@ public class MainActivity extends AppCompatActivity {
         animSet.play(rotate).with(fadeInOut).with(moveIn).with(moveIn1);
         animSet.setDuration(2000);
         animSet.start();
+//
+//        View layout = popup.getContentView();
+//        TextView tvpppp = (TextView) layout.findViewById(R.id.pppp);
+//        tvpppp.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this, Activity_1_1.class);
+//                MainActivity.this.startActivity(intent);
+//                startActivityForResult(intent, 11);
+//            }
+//        });
+//        popup.showAtLocation(mRootview, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
+
     }
+
+
     @Override
     protected void onResume() {
         super.onResume();
 
         boolean applicationInForeground = MyLifecycleHandler.isApplicationInForeground();
-        Toast.makeText(this,"onResume前台运行?  "+applicationInForeground,Toast.LENGTH_LONG).show();
-        Log.e(TAG, "onResume: " +"onResume前台运行?  "+applicationInForeground);
+        Toast.makeText(this, "onResume前台运行?  " + applicationInForeground, Toast.LENGTH_LONG).show();
+        Log.e(TAG, "onResume: " + "onResume前台运行?  " + applicationInForeground);
     }
 
     @Override
@@ -132,8 +167,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
 
         boolean applicationInForeground = MyLifecycleHandler.isApplicationInForeground();
-      Toast.makeText(this,"onStop前台运行?  "+applicationInForeground,Toast.LENGTH_LONG).show();
-        Log.e(TAG, "onStop: " +"onStop前台运行?  "+applicationInForeground);
+
     }
 
     @Override
@@ -141,24 +175,21 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         boolean applicationInForeground = MyLifecycleHandler.isApplicationInForeground();
 
-        Log.e(TAG, "onPause: "+"onPause前台运行?  "+applicationInForeground );
-
-        Toast.makeText(this,"onPause前台运行?  "+applicationInForeground,Toast.LENGTH_LONG).show();
-
     }
 
     private void jiexi() {
-        String string = "{\"resultCode\":0,\"resultValue\":[null]}";
+        String string = "{\"currTime\":1529482696725,\"result\":1,\"message\":\"\",\"cars\":[{\"sn\":\"250019660\",\"idc\":\"19250019660\",\"id\":1529312390,\"receivedTime\":1529312381993,\"electricity\":\"49/100\",\"mileage\":\"106\",\"engineStatus\":0,\"leftFrontDoor\":0,\"rightFrontDoor\":0,\"leftRearDoor\":0,\"rightRearDoor\":0,\"centralLckingStatus\":0,\"lightsStatus\":0,\"chargeStatus\":0,\"totalMileage\":\"20097\",\"gpsTime\":1529312335000,\"longitude\":116.490235,\"latitude\":39.784632,\"speed\":255,\"rpm\":-1,\"on\":0,\"voltage\":\"12.13\",\"boot\":0,\"lastHeartbeatTime\":\"2018/6/20 13:36:24\",\"IsOnline\":1,\"IsSleep\":0,\"KeyPosition\":-1,\"DrivingMethod\":-1,\"MileageRangeReceivedTime\":1529310942076},{\"sn\":\"250019661\",\"idc\":\"19250019661\",\"id\":1529482304,\"receivedTime\":1529482301299,\"electricity\":\"87/100\",\"mileage\":\"142\",\"engineStatus\":0,\"leftFrontDoor\":1,\"rightFrontDoor\":1,\"leftRearDoor\":1,\"rightRearDoor\":1,\"centralLckingStatus\":1,\"lightsStatus\":0,\"chargeStatus\":0,\"totalMileage\":\"73211\",\"gpsTime\":1529480282000,\"longitude\":116.35211,\"latitude\":39.836017,\"speed\":255,\"rpm\":-1,\"on\":0,\"voltage\":\"12.41\",\"boot\":0,\"lastHeartbeatTime\":\"2018/6/20 14:26:08\",\"IsOnline\":1,\"IsSleep\":0,\"KeyPosition\":-1,\"DrivingMethod\":-1,\"MileageRangeReceivedTime\":1529480270020}]}\n";
 
-        JSONObject jsonObject = JSONObject.parseObject(string);
-        String resultValue = jsonObject.getString("resultValue");
-        Log.e(TAG, "jiexi: " + resultValue);
-        List<Modes> modes = JSONArray.parseArray(resultValue, Modes.class);
-        for (int i = 0; i < modes.size(); i++) {
-            //if (modes.get(i)==null)
-            Log.e(TAG, "jiexi:12121212121 " + modes.get(i));
-
+        try {
+            org.json.JSONObject jsonObject = new org.json.JSONObject(string);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+        Modes modes = JSONObject.parseObject(string, Modes.class);
+        //String resultValue = jsonObject.getString("lastHeartbeatTime");
+        Log.e(TAG, "jiexi: " + modes.getLastHeartbeatTime());
+        // List<Modes> modes = JSONArray.parseArray(resultValue, Modes.class);
+
     }
 
 
@@ -254,32 +285,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void repair() {
-
-        LinearLayout linearLayout = new LinearLayout(this);
-        linearLayout.setBackgroundColor(Color.GREEN);
-        RelativeLayout relativeLayout = new RelativeLayout(this);
-        View view = new View(this);
-        RelativeLayout.LayoutParams paramsView = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 10);
-        paramsView.addRule(RelativeLayout.CENTER_IN_PARENT);
-        view.setBackgroundColor(Color.GRAY);
-        view.setLayoutParams(paramsView);
-        view.invalidate();
-
-        relativeLayout.addView(view);
-        TextView textStatus = new TextView(this);
-        textStatus.setText("这是文字");
-        textStatus.setBackgroundResource(R.drawable.shape_repair_status_bg_2);
-        relativeLayout.addView(textStatus);
-
-        linearLayout.addView(relativeLayout);
-        TextView textTime = new TextView(this);
-        textStatus.setText("20182222");
-        linearLayout.addView(textTime);
-
-        ll_repair_index.addView(linearLayout);
-    }
-
     private String getPhoneDeviceInfo() {
 
         //获取手机型号：OPPO R11
@@ -341,27 +346,6 @@ public class MainActivity extends AppCompatActivity {
                 saveBitmap(MainActivity.this, netBitmap, aFileDir.getPath());
             }
         }).start();
-    }
-
-    private void callP() {
-        requestPermission();
-    }
-
-    /**
-     * 请求授权
-     */
-    private void requestPermission() {
-
-
-//        if (ContextCompat.checkSelfPermission(this,
-//                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) { //表示未授权时
-//            //进行授权
-//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, 1);
-//        } else {
-//            //调用打电话的方法
-//            makeCall();
-//        }
-        makeCall();
     }
 
     private void makeCall() {
@@ -477,7 +461,8 @@ public class MainActivity extends AppCompatActivity {
         intent.setData(uri);
         context.sendBroadcast(intent);
     }
-int pppp=0;
+
+
     private void myList() {
         lladapter = new lladapter();
         lv.setAdapter(lladapter);
@@ -503,7 +488,7 @@ int pppp=0;
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            Log.e(TAG, "getView: "+(pppp++) );
+
             View inflate = View.inflate(MainActivity.this, R.layout.item_menu, null);
             Button btn_1 = (Button) inflate.findViewById(R.id.btn_1);
             Button btn_2 = (Button) inflate.findViewById(R.id.btn_2);
@@ -517,7 +502,7 @@ int pppp=0;
                     break;
                 case 2:
                     //第2排
-                    nextPage(btn_1, "标题", Activity_2_1.class);
+                    nextPage(btn_1, "开门开门", Activity_2_1.class);
                     nextPage(btn_2, "标题", Activity_2_2.class);
                     nextPage(btn_3, "标题", Activity_2_3.class);
                     break;

@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:fitsSystemWindows="true"
+    android:id="@+id/lyaout_fenshi"
     android:hapticFeedbackEnabled="true"
     android:orientation="vertical">
     <!--<ProgressBar-->

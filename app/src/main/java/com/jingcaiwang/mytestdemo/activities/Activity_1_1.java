@@ -1,5 +1,6 @@
 package com.jingcaiwang.mytestdemo.activities;
 
+import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -47,6 +48,10 @@ public class Activity_1_1 extends AppCompatActivity {
                 if (animationDrawable != null && !animationDrawable.isRunning()) {
                     animationDrawable.start();
                 }
+                Intent intent = new Intent();
+                intent.putExtra("re","设置返回的数据");
+                setResult(11,intent);
+                finish();
                 break;
             case R.id.btn_2:
                 iv_anim.setBackgroundResource(R.drawable.anim_2);

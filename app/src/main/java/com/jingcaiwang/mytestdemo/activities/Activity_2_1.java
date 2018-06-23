@@ -1,150 +1,74 @@
 package com.jingcaiwang.mytestdemo.activities;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.jingcaiwang.mytestdemo.R;
+import com.jingcaiwang.mytestdemo.beans.BaseBean;
+import com.jingcaiwang.mytestdemo.network.OKHttpManager;
 
-import java.io.BufferedOutputStream;
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.util.HashMap;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import okhttp3.Request;
 
 public class Activity_2_1 extends AppCompatActivity {
     private static final String TAG = "Activity_2_1";
+    @Bind(R.id.left_door)
+    Button mLeftDoor;
+    @Bind(R.id.right_door)
+    Button mRightDoor;
+    @Bind(R.id.big_door)
+    Button mBigDoor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2_1);
-        File file = new File("/sdcard/Android/data/com.risenb.jingkai/record1.raw");
-        Log.e(TAG, "onCreate: ");
-        startBufferedWrite(file);
+        ButterKnife.bind(this);
 
-//        getEnvironmentDirectories();
-//        getApplicationDirectories(this);
     }
 
-    /**
-     * 写入到raw文件
-     * new AudioRecorder2Mp3Util(null, "/sdcard/Android/data/com.risenb.jingkai/record1.raw",
-     * "/sdcard/Android/data/com.risenb.jingkai/record1.mp3");
-     *
-     * @param file
-     */
-    private void startBufferedWrite(final File file)  {
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
+
+    private void getWorkerFunctions(String doorKey) {
+        final HashMap<String, String> params = new HashMap<>();
+        params.put("c", "293c398e456dc2174667dc3e02f9daf7");
+        params.put("parkId", 24 + "");
+        params.put("doorKey",doorKey);
+        OKHttpManager.postAsyn("http://testjcgj.jingcaiwang.cn:8881/doormanager/getDoorInfoByQRCode.do", params, new OKHttpManager.ResultCallback<BaseBean>() {
+            @Override
+            public void onResponse(BaseBean baseBean) {
+//                {"success":1,"errorMsg":"开门成功","data":{}}
+                Log.e(TAG, "onResponse: " + baseBean);
+                Toast.makeText(Activity_2_1.this, baseBean.getErrorMsg(), Toast.LENGTH_LONG).show();
             }
-        }
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-        DataOutputStream output = null;
-        try {
 
-            FileOutputStream fileOutputStream = new FileOutputStream(file);
-            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(
-                    fileOutputStream);
-            output = new DataOutputStream(bufferedOutputStream);
-//                    while (true) {
-//                        int readSize = 11;
-//                        for (int i = 0; i < readSize; i++) {
-//                            output.writeShort(12);
-//                        }
-//
-//                    }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (output != null) {
-                try {
-                    output.flush();
-                } catch (IOException e) {
-                    e.printStackTrace();
+            @Override
+            public void onError(Request request, Exception e, String msg) {
+                Toast.makeText(Activity_2_1.this, msg, Toast.LENGTH_LONG).show();
 
-                } finally {
-                    try {
-                        output.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
             }
+        }, null);
+    }
+
+    @OnClick({R.id.left_door, R.id.right_door, R.id.big_door})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.left_door:
+                getWorkerFunctions("1:1");
+                break;
+            case R.id.right_door:
+                getWorkerFunctions("1:3");
+                break;
+            case R.id.big_door:
+                getWorkerFunctions(" 1:4");
+                break;
         }
-        // }
-//        }
-// ).start();
-    }
-
-    public static void getEnvironmentDirectories() {
-        //:/system
-        String rootDir = Environment.getRootDirectory().toString();
-        System.out.println("Environment.getRootDirectory()=:" + rootDir);
-
-        //:/data 用户数据目录
-        String dataDir = Environment.getDataDirectory().toString();
-        System.out.println("Environment.getDataDirectory()=:" + dataDir);
-
-        //:/cache 下载缓存内容目录
-        String cacheDir = Environment.getDownloadCacheDirectory().toString();
-        System.out.println("Environment.getDownloadCacheDirectory()=:" + cacheDir);
-
-        //:/mnt/sdcard或者/storage/emulated/0或者/storage/sdcard0 主要的外部存储目录
-//<span style="color:#ff0000;">这个不一定是外部存储
-        String storageDir = Environment.getExternalStorageDirectory().toString();
-        System.out.println("Environment.getExternalStorageDirectory()=:" + storageDir);
-
-        //:/mnt/sdcard/Pictures或者/storage/emulated/0/Pictures或者/storage/sdcard0/Pictures
-        String publicDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString();
-        System.out.println("Environment.getExternalStoragePublicDirectory()=:" + publicDir);
-
-        //获取SD卡是否存在:mounted
-        String storageState = Environment.getExternalStorageState().toLowerCase();
-        System.out.println("Environment.getExternalStorageState()=:" + storageState);
-
-        //设备的外存是否是用内存模拟的，是则返回true。(API Level 11)
-        boolean isEmulated = Environment.isExternalStorageEmulated();
-        System.out.println("Environment.isExternalStorageEmulated()=:" + isEmulated);
-
-        //设备的外存是否是可以拆卸的，比如SD卡，是则返回true。(API Level 9)
-        boolean isRemovable = Environment.isExternalStorageRemovable();
-        System.out.println("Environment.isExternalStorageRemovable()=</span>:" + isRemovable);
-    }
-
-    public static void getApplicationDirectories(Context context) {
-
-        //获取当前程序路径 应用在内存上的目录 :/data/data/com.mufeng.toolproject/files
-        String filesDir = context.getFilesDir().toString();
-        System.out.println("context.getFilesDir()=:" + filesDir);
-
-        //应用的在内存上的缓存目录 :/data/data/com.mufeng.toolproject/cache
-        String cacheDir = context.getCacheDir().toString();
-        System.out.println("context.getCacheDir()=:" + cacheDir);
-
-        //应用在外部存储上的目录 :/storage/emulated/0/Android/data/com.mufeng.toolproject/files/Movies
-        String externalFilesDir = context.getExternalFilesDir(Environment.DIRECTORY_MOVIES).toString();
-        System.out.println("context.getExternalFilesDir()=:" + externalFilesDir);
-
-        //应用的在外部存储上的缓存目录 :/storage/emulated/0/Android/data/com.mufeng.toolproject/cache
-        String externalCacheDir = context.getExternalCacheDir().toString();
-        System.out.println("context.getExternalCacheDir()=:" + externalCacheDir);
-
-        //获取该程序的安装包路径 :/data/app/com.mufeng.toolproject-3.apk
-        String packageResourcePath = context.getPackageResourcePath();
-        System.out.println("context.getPackageResourcePath()=:" + packageResourcePath);
-
-        //获取程序默认数据库路径 :/data/data/com.mufeng.toolproject/databases/mufeng
-        String databasePat = context.getDatabasePath("mufeng").toString();
-        System.out.println("context.getDatabasePath(\"mufeng\")=:" + databasePat);
-
-
     }
 }
