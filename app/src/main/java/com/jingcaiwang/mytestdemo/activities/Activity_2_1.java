@@ -67,7 +67,7 @@ public class Activity_2_1 extends AppCompatActivity {
                 getWorkerFunctions("1:3");
                 break;
             case R.id.big_door:
-                getWorkerFunctions(" 1:4");
+                getWorkerFunctions("1:4");
                 break;
         }
     }
