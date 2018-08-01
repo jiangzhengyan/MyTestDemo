@@ -92,6 +92,7 @@
         </activity>
         <activity android:name=".activities.Activity_3_3">
         </activity>
+        <meta-data android:name="baidu" android:value="$flavors"></meta-data>
     </application>
 
 </manifest>

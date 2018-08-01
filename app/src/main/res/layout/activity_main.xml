@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFFFFF"
     android:fitsSystemWindows="true"
     android:id="@+id/lyaout_fenshi"
@@ -15,6 +16,14 @@
     <!--android:indeterminate="false"-->
     <!--android:indeterminateDuration="900"-->
     <!--android:indeterminateDrawable="@drawable/anim_7"/>-->
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/navigation" />
 
     <Button
         android:onClick="anim"
@@ -68,4 +77,6 @@
         android:divider="@color/gray"
         android:dividerHeight="1dp"
         />
+
+
 </LinearLayout>
