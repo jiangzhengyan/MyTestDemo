@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "com.jingcaiwang.mytestdemo"
         minSdkVersion 16
-        targetSdkVersion 19
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -43,7 +43,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:25.3.0'
-
     testCompile 'junit:junit:4.12'
     compile 'com.squareup.okhttp3:okhttp:3.2.0'
     //okhttp请求网络框架
@@ -60,12 +59,20 @@ dependencies {
     compile files('libs/youmneg/flame.jar')
     compile files('libs/xutils.jar')
     //    compile files('libs/xu111tils.jar')
-//    compile('uk.co.chrisjenx:calligraphy:2.2.0') {
-//        exclude group: 'com.android.support:design'
-//    }
+    //    compile('uk.co.chrisjenx:calligraphy:2.2.0') {
+    //        exclude group: 'com.android.support:design'
+    //    }
     compile 'com.jakewharton:butterknife:7.0.1'
     //    compile 'com.jakewharton:butterknife:8.2.1'
     //    annotationProcessor 'com.jakewharton:butterknife-compiler:8.2.1'
     //    implementation 'com.jakewharton:butterknife:8.8.1'
     //    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile files('libs/umeng-common-1.5.3.jar')
+    compile files('libs/umeng-share-core-6.9.3.jar')
+    compile files('libs/umeng-share-QQ-simplify-6.9.3.jar')
+    compile files('libs/umeng-share-sina-simplify-6.9.3.jar')
+    compile files('libs/umeng-share-sms-6.9.3.jar')
+    compile files('libs/umeng-share-wechat-full-6.9.3.jar')
+    compile files('libs/umeng-sharetool-6.9.3.jar')
+    compile files('libs/wechat-sdk-android-without-mta-5.1.4.jar')
 }
