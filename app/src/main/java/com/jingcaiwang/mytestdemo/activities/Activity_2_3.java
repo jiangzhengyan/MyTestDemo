@@ -16,6 +16,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 import com.jingcaiwang.mytestdemo.R;
 import com.jingcaiwang.mytestdemo.application.MyApplication;
+import com.zbar.lib.CaptureActivity;
 
 import java.io.File;
 import java.io.IOException;
@@ -100,7 +102,15 @@ public class Activity_2_3 extends AppCompatActivity {
         takePhoto();
 
     }
-
+    /**
+     * 扫码
+     */
+    @OnClick(R.id.tv_open_xcode)
+      void scanClick(View v) {
+        Intent intent = new Intent(this,
+                CaptureActivity.class);
+        startActivity(intent);
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
