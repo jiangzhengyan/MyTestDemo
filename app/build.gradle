@@ -26,12 +26,39 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    productFlavors {
-        baidu {
-            manifestPlaceholders(["flavors":"baidu"])
-        }
-
-    }
+//    productFlavors {
+//        baidu {
+//            manifestPlaceholders(["flavors":"baidu"])
+//        }
+//
+//    }
+//    android.applicationVariants.all { variant ->
+//        variant.outputs.each {  output ->
+//            def fileName=""
+//            def names="MyTestDemo"
+//            if (variant.buildType.name.equals('release')) {
+//                fileName = "${names}-release-${defaultConfig.versionName}.apk"
+//            } else if (variant.buildType.name.equals('debug')) {
+//                fileName = "${names}-debug-${defaultConfig.versionName}.apk"
+//            }
+//           // def file = output.outputFile
+//            //output.outputFile = new File(file.name.replace(".apk", "-" + defaultConfig.versionName + ".apk"))
+//            output.outputFile = new File(fileName)
+//           // outputFileName = fileName;
+//        }
+//    }
+//    applicationVariants.all { variant ->
+//        variant.outputs.all {
+//            def fileName
+//            def names="MyTestDemo"
+//            if (variant.buildType.name.equals('release')) {
+//                fileName = "${names}-release-${defaultConfig.versionName}.apk"
+//            } else if (variant.buildType.name.equals('debug')) {
+//                fileName = "${names}-debug-${defaultConfig.versionName}.apk"
+//            }
+//            outputFileName = fileName;
+//        }
+//    }
 }
 
 dependencies {

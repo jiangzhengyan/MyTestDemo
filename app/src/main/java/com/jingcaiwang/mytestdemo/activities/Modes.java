@@ -1,14 +1,12 @@
 package com.jingcaiwang.mytestdemo.activities;
 
 
+import butterknife.Bind;
+
 public class Modes {
-    private String lastHeartbeatTime;
 
-    public String getLastHeartbeatTime() {
-        return lastHeartbeatTime;
-    }
+    public  enum Constants{
 
-    public void setLastHeartbeatTime(String lastHeartbeatTime) {
-        this.lastHeartbeatTime = lastHeartbeatTime;
+        aa,bb;
     }
 }

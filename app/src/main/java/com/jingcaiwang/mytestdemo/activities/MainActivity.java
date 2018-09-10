@@ -187,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
         }
         Modes modes = JSONObject.parseObject(string, Modes.class);
         //String resultValue = jsonObject.getString("lastHeartbeatTime");
-        Log.e(TAG, "jiexi: " + modes.getLastHeartbeatTime());
+       // Log.e(TAG, "jiexi: " + modes.getLastHeartbeatTime());
         // List<Modes> modes = JSONArray.parseArray(resultValue, Modes.class);
 
     }

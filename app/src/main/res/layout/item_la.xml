@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.jingcaiwang.mytestdemo.views.CheckableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@drawable/selector_item_checked">
+    <!--<ImageView-->
+    <!--android:id="@+id/iv_checkable"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:duplicateParentState="true"-->
+
+    <!--android:background="@drawable/selector_item_checked"-->
+    <!--/>-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="了了了了了了了了了了了了了了了了了了来来来"
+
+        />
+
+</com.jingcaiwang.mytestdemo.views.CheckableLayout>

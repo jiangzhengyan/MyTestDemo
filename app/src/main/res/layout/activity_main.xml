@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lyaout_fenshi"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFFFFF"
     android:fitsSystemWindows="true"
-    android:id="@+id/lyaout_fenshi"
     android:hapticFeedbackEnabled="true"
     android:orientation="vertical">
     <!--<ProgressBar-->
@@ -23,33 +23,70 @@
         android:layout_height="50dp"
         android:layout_gravity="bottom"
         android:background="?android:attr/windowBackground"
-        app:menu="@menu/navigation" />
+        app:menu="@menu/navigation"/>
 
     <Button
-        android:onClick="anim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="anim"
         android:text="dianji"
         />
+
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="水光笔"
+        android:background="@drawable/selector_btn_"
+
+        />
+
+    <CheckBox
+        android:button="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="水光笔"
+        android:checked="true"
+        android:padding="8dp"
+        android:textColor="@color/white"
+        android:background="@drawable/selector_btn_"
+
+        />
+ <CheckedTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="水光笔"
+        android:checked="true"
+        android:padding="12dp"
+        android:textColor="@color/white"
+        android:background="@drawable/selector_btn_"
+
+        />
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        >   <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="00000"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
 
 
-        android:background="@color/colorPrimary"
-        />   <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="你好"
-        android:id="@+id/tv_ani"
+            android:text="00000"
+            />
 
-        android:background="@color/colorAccent"
-        /></LinearLayout>
+        <TextView
+            android:id="@+id/tv_ani"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+
+            android:text="你好"
+            />
+    </LinearLayout>
 
     <HorizontalScrollView
         android:layout_width="wrap_content"

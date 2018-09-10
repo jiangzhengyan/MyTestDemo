@@ -23,10 +23,23 @@ public class MDrawLineView extends View {
         }
         canvas=new Canvas();
         canvas.setBitmap(bitmap);
+       // paint.setStyle(Paint.Style.STROKE);//设置非填充
         paint.setStyle(Paint.Style.STROKE);//设置非填充
-        paint.setStrokeWidth(5);//笔宽5像素
+        paint.setStrokeWidth(10);//笔宽5像素
         paint.setColor(Color.RED);//设置为红笔
         paint.setAntiAlias(true);//锯齿不显示
+
+
+
+
+       // mPaint = new Paint();
+       // mPaint.setAntiAlias(true);
+        paint.setDither(true);
+       // mPaint.setColor(0xFF000000);
+        //mPaint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeJoin(Paint.Join.ROUND);
+        paint.setStrokeCap(Paint.Cap.ROUND);
+        //paint.setStrokeWidth(10);
     }
     @Override
     protected void onDraw(Canvas canvas) {
@@ -43,7 +56,8 @@ public class MDrawLineView extends View {
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()){
             case MotionEvent.ACTION_MOVE: //用户手指在屏幕上移动画线
-                canvas.drawLine(mov_x,mov_y,event.getX(),event.getY(),paint);
+
+               canvas.drawLine(mov_x-1,mov_y-1,event.getX()+1,event.getY()+1,paint);
                 invalidate();
                 break;
             case MotionEvent.ACTION_DOWN://用户手指按下时画起点
