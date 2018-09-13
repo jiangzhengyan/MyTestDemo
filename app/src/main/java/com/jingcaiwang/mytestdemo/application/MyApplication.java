@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.jingcaiwang.mytestdemo.utils.MyLifecycleHandler;
 import com.jingcaiwang.mytestdemo.utils.ScreenUtils;
+import com.qihoo360.replugin.RePluginApplication;
+import com.qihoo360.replugin.gen.RePluginHostConfig;
 
 import java.util.Iterator;
 import java.util.List;
@@ -22,7 +24,7 @@ import okhttp3.OkHttpClient;
  * Created by jiang_yan on 2017/9/28.
  */
 
-public class MyApplication extends Application {
+public class MyApplication extends RePluginApplication {
 
 
     private static final String TAG = "LiveApplication";

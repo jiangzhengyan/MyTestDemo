@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 //lambda
 apply plugin: 'me.tatarka.retrolambda'
+
 android {
     compileSdkVersion 24
     buildToolsVersion '25.0.0'
@@ -60,6 +61,28 @@ android {
 //        }
 //    }
 }
+apply plugin: 'replugin-host-gradle'
+
+/**
+ * 配置项均为可选配置，默认无需添加
+ * 更多可选配置项参见replugin-host-gradle的RepluginConfig类
+ * 可更改配置项参见 自动生成RePluginHostConfig.java
+ */
+repluginHostConfig {
+    /**
+     * 是否使用 AppCompat 库
+     * 不需要个性化配置时，无需添加
+     */
+    useAppCompat = true
+    /**
+     * 背景不透明的坑的数量
+     * 不需要个性化配置时，无需添加
+     */
+    countNotTranslucentStandard = 6
+    countNotTranslucentSingleTop = 2
+    countNotTranslucentSingleTask = 3
+    countNotTranslucentSingleInstance = 2
+}
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -102,4 +125,5 @@ dependencies {
     compile files('libs/umeng-share-wechat-full-6.9.3.jar')
     compile files('libs/umeng-sharetool-6.9.3.jar')
     compile files('libs/wechat-sdk-android-without-mta-5.1.4.jar')
+    compile 'com.qihoo360.replugin:replugin-host-lib:2.2.4'
 }
