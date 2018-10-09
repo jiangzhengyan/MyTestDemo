@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_activity_white">
+
+
+    <TextView
+        android:textSize="13sp"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="运营商网络下继续更新可能产生超额流量费，建议使用wifi网络进行更新操作"
+        android:layout_width="250dp"
+        android:layout_height="80dp" />
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="1dp"
+        android:background="#c2c2c2"/>
+
+    <RelativeLayout
+        android:layout_width="250dp"
+        android:layout_height="40dp">
+        <TextView
+            android:id="@+id/tv_fenge"
+            android:layout_centerHorizontal="true"
+            android:background="#c2c2c2"
+            android:layout_width="1dp"
+            android:layout_height="40dp" />
+        <TextView
+            android:id="@+id/tv_warm_cancle"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:text="取消"
+            android:layout_toLeftOf="@+id/tv_fenge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/tv_warm_continue"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:text="继续"
+            android:layout_toRightOf="@+id/tv_fenge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+</LinearLayout>

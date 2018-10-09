@@ -509,26 +509,26 @@ public class MainActivity extends AppCompatActivity {
                 case 3:
                     //第3排
                     nextPage(btn_1, "标题", Activity_3_1.class);
-                    nextPage(btn_2, "标题", Activity_3_2.class);
-                    nextPage(btn_3, "标题", Activity_3_3.class);
+                    nextPage(btn_2, "录音", Activity_3_2.class);
+                    nextPage(btn_3, "播放录音", Activity_3_3.class);
                     break;
                 case 4:
                     //第4排
-                    nextPage(btn_1, "标题", Activity_1_1.class);
-                    nextPage(btn_2, "标题", Activity_1_2.class);
-                    nextPage(btn_3, "标题", Activity_1_3.class);
+                    nextPage(btn_1, "标题", Activity_4_1.class);
+                    nextPage(btn_2, "标题", Activity_4_2.class);
+                    nextPage(btn_3, "标题", Activity_4_3.class);
                     break;
                 case 5:
                     //第5排
-                    nextPage(btn_1, "标题", Activity_1_1.class);
-                    nextPage(btn_2, "标题", Activity_1_2.class);
-                    nextPage(btn_3, "标题", Activity_1_3.class);
+                    nextPage(btn_1, "标题", Activity_5_1.class);
+                    nextPage(btn_2, "标题", Activity_5_2.class);
+                    nextPage(btn_3, "标题", Activity_5_3.class);
                     break;
                 case 6:
                     //第6排
-                    nextPage(btn_1, "标题", Activity_1_1.class);
-                    nextPage(btn_2, "标题", Activity_1_2.class);
-                    nextPage(btn_3, "标题", Activity_1_3.class);
+                    nextPage(btn_1, "标题", Activity_6_1.class);
+                    nextPage(btn_2, "标题", Activity_6_2.class);
+                    nextPage(btn_3, "标题", Activity_6_3.class);
                     break;
                 case 7:
                     //第7排

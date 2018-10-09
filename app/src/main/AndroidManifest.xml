@@ -98,6 +98,14 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".activities.Activity_4_1"/>
+        <activity android:name=".activities.Activity_6_3"/>
+        <activity android:name=".activities.Activity_6_2"/>
+        <activity android:name=".activities.Activity_5_3"/>
+        <activity android:name=".activities.Activity_5_2"/>
+        <activity android:name=".activities.Activity_5_1"/>
+        <activity android:name=".activities.Activity_4_3"/>
+        <activity android:name=".activities.Activity_4_2"/>
 
         <meta-data android:name="baidu" android:value="$flavors"></meta-data>
         <provider

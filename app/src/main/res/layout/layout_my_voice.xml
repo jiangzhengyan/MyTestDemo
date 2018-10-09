@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    tools:showIn="@layout/activity_3_2">
+
+
+    <RelativeLayout
+        android:layout_width="231dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_voice"
+        >
+
+        <ProgressBar
+            android:id="@+id/pb"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:paddingLeft="1dp"
+            android:paddingRight="1dp"
+            android:progress="0"/>
+
+        <TextView
+            android:id="@+id/tvAllStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pb"
+            android:layout_centerInParent="true"
+            android:drawableLeft="@drawable/icon_voice"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:padding="9dp"
+            android:text="开始录音"
+            />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginLeft="8dp"
+        android:id="@+id/iv_delete"
+        android:visibility="invisible"
+        android:src="@drawable/icon_delete"/>
+</LinearLayout>
+
+
+    

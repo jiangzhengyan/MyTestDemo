@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+
+    >
+
+
+
+    <RelativeLayout
+
+        android:layout_width="250dp"
+        android:layout_height="31dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/shape_play_voice_bg"
+        >
+
+        <ProgressBar
+            android:id="@+id/pb"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:paddingLeft="1dp"
+            android:paddingRight="1dp"
+            android:progress="0"/>
+
+        <TextView
+            android:id="@+id/tvAllStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:drawableLeft="@mipmap/icon_play"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+
+            android:text="开始播放        0'"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>
+
+
+    

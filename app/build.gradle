@@ -126,4 +126,6 @@ dependencies {
     compile files('libs/umeng-sharetool-6.9.3.jar')
     compile files('libs/wechat-sdk-android-without-mta-5.1.4.jar')
     compile 'com.qihoo360.replugin:replugin-host-lib:2.2.4'
+    compile 'com.liulishuo.filedownloader:library:1.4.1'
+
 }

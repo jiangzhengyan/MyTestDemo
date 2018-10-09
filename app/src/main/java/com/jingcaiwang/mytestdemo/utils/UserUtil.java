@@ -49,7 +49,36 @@ public class UserUtil {
     }
 
     private static boolean isShowLog = true;// 是否打印log日志
+    /**
+     *   把毫秒值转换成 12'34" 的样子
+     * @param timeInMillis
+     * @return
+     */
+    public static String traslateMillisToFM(String timeInMillis) {
+        if (TextUtils.isEmpty(timeInMillis)) {
+            return "";
+        }
+        int times;
+        String timesStr = "";
+        try {
+            times = (int) (Long.parseLong(timeInMillis) / 1000l);
 
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+        if (times < 60) {
+            timesStr = times + "\"";
+        }
+        else if (times >= 60
+            //&& times < 3600
+                ) {
+
+            timesStr = times / 60 + "'  " + times % 60 + "\"";
+        }
+        return timesStr;
+
+    }
     /**
      * 打印log日志的方法.
      *

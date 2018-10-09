@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.jingcaiwang.mytestdemo.utils.MyLifecycleHandler;
 import com.jingcaiwang.mytestdemo.utils.ScreenUtils;
+import com.lidroid.mutils.MUtils;
 import com.qihoo360.replugin.RePluginApplication;
 import com.qihoo360.replugin.gen.RePluginHostConfig;
 
@@ -47,6 +48,8 @@ public class MyApplication extends RePluginApplication {
         ScreenUtils.initScreen(this);//初始化ScreenUtils
         instance = this;
         int pid = android.os.Process.myPid();
+        path = MUtils.getMUtils().getPath(this);
+
         String processAppName = getAppName(pid);
         registerActivityLifecycleCallbacks(new MyLifecycleHandler());
         if (processAppName == null || !processAppName.equalsIgnoreCase("com.jingkai.worker")) {
