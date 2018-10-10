@@ -2,7 +2,6 @@ package com.jingcaiwang.mytestdemo.utils;
 
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -15,8 +14,6 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,18 +26,17 @@ import com.liulishuo.filedownloader.FileDownloadListener;
 import com.liulishuo.filedownloader.FileDownloader;
 
 import java.io.File;
+
 /**
- *  本类的主要功能是 :  更新
+ * 本类的主要功能是 :  更新
  *
- * @author  jiang_zheng_yan  2018/10/9 22:42
- *
+ * @author jiang_zheng_yan  2018/10/9 22:42
  */
 public class UpdateUtil implements DialogInterface.OnKeyListener {
     private Context mContext;
-    private DonotUpdateListener donotUpdateListener;
     private static final String TAG = "UpdateUtil";
     private Dialog dialog_update;
-    private Dialog dialog_warm;
+    private Dialog dialog_warn;
     private Dialog dialog_updateing;
 
     @Override
@@ -48,24 +44,18 @@ public class UpdateUtil implements DialogInterface.OnKeyListener {
         if (i == KeyEvent.KEYCODE_BACK) {
             if (dialog_update == dialogInterface) {
                 dialog_update.dismiss();
-                ((Activity) mContext).finish();
+                // ((Activity) mContext).finish();
             } else if (dialog_updateing == dialogInterface) {
                 Toast.makeText(mContext, "正在下载无法退出", Toast.LENGTH_SHORT).show();
-
             }
             return true;
-        } else {
-            return false;
         }
+        return false;
+
     }
 
-    public interface DonotUpdateListener {
-          void donotUpdate();
-    }
-
-    public UpdateUtil(Context mContext, DonotUpdateListener donotUpdateListener) {
+    public UpdateUtil(Context mContext) {
         this.mContext = mContext;
-        this.donotUpdateListener = donotUpdateListener;
     }
 
     //    public static final String ACCOUNT_DIR = MyApplication.getInstance().getApplicationContext().getExternalCacheDir().getAbsolutePath();
@@ -80,65 +70,65 @@ public class UpdateUtil implements DialogInterface.OnKeyListener {
     public void upDateApp(final UpdateInfoBean updateInfoBean) {
         //先清除缓存目录下的文件
         clearAPPCache();
-        if (updateInfoBean != null) {
-            if (!TextUtils.isEmpty(updateInfoBean.getServiceUrl())) {
-                if (!f.exists()) {
-                    f.mkdirs();
-                }
-                dialog_update = new Dialog(mContext, R.style.update_dialog);
-                dialog_update.setOnKeyListener(this);
-                View view = LayoutInflater.from(mContext).inflate(R.layout.updatedialog, null);
-                dialog_update.setContentView(view);
-                final TextView tv_update_content = (TextView) view.findViewById(R.id.tv_update_content);
-                tv_update_content.setText(updateInfoBean.getUpdateNotification());
-                Button btn_update = (Button) view.findViewById(R.id.btn_update);
-                final ImageView iv_donotupdate = (ImageView) view.findViewById(R.id.iv_donotupdate);
-                if (updateInfoBean.getIfUpdate() == false) {
-                    iv_donotupdate.setVisibility(View.VISIBLE);
-                } else {
-                    iv_donotupdate.setVisibility(View.GONE);
-                }
-                btn_update.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if (!NetworkUtils.isWifiConnected(mContext)) {
-                            dialog_warm = new Dialog(mContext, R.style.update_dialog);
-                            View view_warming = LayoutInflater.from(mContext).inflate(R.layout.netwarmingdlg, null);
-                            dialog_warm.setContentView(view_warming);
-                            TextView tv_warm_cancle = (TextView) view_warming.findViewById(R.id.tv_warm_cancle);
-                            TextView tv_warm_continue = (TextView) view_warming.findViewById(R.id.tv_warm_continue);
-                            tv_warm_cancle.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    dialog_warm.dismiss();
-                                }
-                            });
-                            tv_warm_continue.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    dialog_warm.dismiss();
-                                    gotoUpdate(updateInfoBean);
-                                }
-                            });
-                            dialog_warm.show();
-                        } else {
-                            gotoUpdate(updateInfoBean);
-                        }
-                    }
-                });
-                iv_donotupdate.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dialog_update.dismiss();
-                        donotUpdateListener.donotUpdate();
-                    }
-                });
-                dialog_update.setCancelable(false);
-                dialog_update.show();
-            } else {
-                donotUpdateListener.donotUpdate();
-            }
+        if (updateInfoBean == null) {
+            return;
         }
+        if (TextUtils.isEmpty(updateInfoBean.getServiceUrl())) {
+            return;
+        }
+        if (!f.exists()) {
+            f.mkdirs();
+        }
+        dialog_update = new Dialog(mContext, R.style.update_dialog);
+        dialog_update.setOnKeyListener(this);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.updatedialog, null);
+        dialog_update.setContentView(view);
+        TextView tv_queding = (TextView) view.findViewById(R.id.tv_queding);
+        final TextView tv_quxiao = (TextView) view.findViewById(R.id.tv_quxiao);
+
+
+        tv_queding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //是wifi链接
+                if (NetworkUtils.isWifiConnected(mContext)) {
+                    gotoUpdate(updateInfoBean);
+                    return;
+                }
+                dialog_warn = new Dialog(mContext, R.style.update_dialog);
+                View view_warming = LayoutInflater.from(mContext).inflate(R.layout.netwarmingdlg, null);
+                dialog_warn.setContentView(view_warming);
+                TextView tv_warn_cancle = (TextView) view_warming.findViewById(R.id.tv_warn_cancle);
+                TextView tv_warn_continue = (TextView) view_warming.findViewById(R.id.tv_warn_continue);
+                tv_warn_cancle.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog_warn.dismiss();
+                    }
+                });
+                tv_warn_continue.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog_warn.dismiss();
+                        gotoUpdate(updateInfoBean);
+                    }
+                });
+                dialog_warn.show();
+
+            }
+        });
+
+        tv_quxiao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (dialog_update != null && dialog_update.isShowing()) {
+                    dialog_update.dismiss();
+                }
+            }
+        });
+
+        dialog_update.setCancelable(false);
+        dialog_update.show();
     }
 
     public void gotoUpdate(final UpdateInfoBean updateInfoBean) {
@@ -207,11 +197,6 @@ public class UpdateUtil implements DialogInterface.OnKeyListener {
                     protected void error(BaseDownloadTask task, Throwable e) {
                         dialog_updateing.dismiss();
                         Toast.makeText(mContext, "更新出错", Toast.LENGTH_SHORT).show();
-                        if (!updateInfoBean.getIfUpdate()) {
-                            donotUpdateListener.donotUpdate();
-                        } else {
-                            System.exit(0);
-                        }
                     }
 
                     @Override

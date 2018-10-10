@@ -13,7 +13,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class Activity_4_1 extends AppCompatActivity  implements UpdateUtil.DonotUpdateListener{
+public class Activity_4_1 extends AppCompatActivity   {
 
     private UpdateUtil updateUtil;
 
@@ -26,7 +26,7 @@ public class Activity_4_1 extends AppCompatActivity  implements UpdateUtil.Donot
         setContentView(R.layout.activity_4_1);
         ButterKnife.bind(this);
 
-        updateUtil=new UpdateUtil(this,this);
+        updateUtil=new UpdateUtil(this);
     }
 
 
@@ -34,7 +34,7 @@ public class Activity_4_1 extends AppCompatActivity  implements UpdateUtil.Donot
     public void onViewClicked() {
         int versionCodeNow= BuildConfig.VERSION_CODE;
         UpdateInfoBean updateInfoBean = new UpdateInfoBean();
-        updateInfoBean.setIfUpdate(true);
+
         updateInfoBean.setServiceUrl("http://www");
         updateInfoBean.setUpdateNotification("1212");
         updateInfoBean.setVersion(12);
@@ -42,13 +42,6 @@ public class Activity_4_1 extends AppCompatActivity  implements UpdateUtil.Donot
 
     }
 
-    /**
-     *  不更新的
-     */
-    @Override
-    public void donotUpdate() {
 
-
-    }
 }
 

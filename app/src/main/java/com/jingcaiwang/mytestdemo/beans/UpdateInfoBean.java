@@ -9,7 +9,6 @@ import java.io.Serializable;
 public class UpdateInfoBean implements Serializable {
     private int version;  //版本号
     private String updateNotification;  //更新提示
-    private boolean ifUpdate ;   //是否强制更新
     private String serviceUrl;   //资源地址
 
     public int getVersion() {
@@ -28,13 +27,6 @@ public class UpdateInfoBean implements Serializable {
         this.updateNotification = updateNotification;
     }
 
-    public Boolean getIfUpdate() {
-        return ifUpdate;
-    }
-
-    public void setIfUpdate(Boolean ifUpdate) {
-        this.ifUpdate = ifUpdate;
-    }
 
     public String getServiceUrl() {
         return serviceUrl;
@@ -44,13 +36,5 @@ public class UpdateInfoBean implements Serializable {
         this.serviceUrl = serviceUrl;
     }
 
-    @Override
-    public String toString() {
-        return "UpdateInfoBean{" +
-                "version=" + version +
-                ", updateNotification='" + updateNotification + '\'' +
-                ", ifUpdate=" + ifUpdate +
-                ", serviceUrl='" + serviceUrl + '\'' +
-                '}';
-    }
+
 }
