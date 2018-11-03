@@ -5,8 +5,39 @@
     android:layout_height="match_parent"
     android:background="@color/translete"
     >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#111"
+        android:id="@+id/tv"
 
+        android:layout_marginTop="55dp"
 
+        android:scrollbars="vertical"
+        android:textSize="12sp"
+        android:text="去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去去去去去去请"
+        />
+    <ScrollView
+        android:layout_marginTop="55dp"
+        android:layout_below="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+    <com.jingcaiwang.mytestdemo.views.MyTextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="42dp"
+                  android:textColor="#111"
+                  android:textSize="12sp"
+                  android:text="去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去群亲群群群群群去去去去去去去去去去去去去去去去去去去去去请"
+                  />
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </RelativeLayout>

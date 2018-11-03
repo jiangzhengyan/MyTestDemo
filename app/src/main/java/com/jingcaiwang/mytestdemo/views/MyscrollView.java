@@ -106,7 +106,9 @@ public class MyscrollView extends ScrollView {
                 if (scrollViewListener != null) {
                     scrollViewListener.onScrollChanged(scrollType);
                 }
-                mHandler.removeCallbacks(this);
+                if (mHandler!=null)
+
+                    mHandler.removeCallbacks(this);
                 return;
             } else {
                 //手指离开屏幕    view还在滚动的时候
@@ -117,7 +119,9 @@ public class MyscrollView extends ScrollView {
                 }
             }
             currentY = getScrollY();
-            mHandler.postDelayed(this, scrollDealy);
+            if (mHandler!=null)
+
+                mHandler.postDelayed(this, scrollDealy);
         }
     };
 
@@ -127,13 +131,16 @@ public class MyscrollView extends ScrollView {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_MOVE:
                 this.scrollType = ScrollType.TOUCH_SCROLL;
+                if (scrollViewListener!=null)
                 scrollViewListener.onScrollChanged(scrollType);
                 //手指在上面移动的时候   取消滚动监听线程
+                if (mHandler!=null)
                 mHandler.removeCallbacks(scrollRunnable);
                 break;
             case MotionEvent.ACTION_UP:
                 //手指移动的时候
-                mHandler.post(scrollRunnable);
+                if (mHandler!=null)
+                    mHandler.post(scrollRunnable);
                 break;
         }
         return super.onTouchEvent(ev);

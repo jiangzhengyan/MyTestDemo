@@ -6,6 +6,8 @@
     <color name="alphablack">#80000000</color>
     <color name="textwhite">#ffffffff</color>
     <color name="transparent">#00000000</color>
+    <color name="color_main_gray">#E5E5E5</color>
+    <color name="color_main_blue">#3875D0</color>
 
     <color name="black_overlay">#66000000</color>
     <!--预缴费-->

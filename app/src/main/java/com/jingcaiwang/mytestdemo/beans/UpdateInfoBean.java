@@ -1,11 +1,12 @@
 package com.jingcaiwang.mytestdemo.beans;
 
 import java.io.Serializable;
-
 /**
- * Created by fanshixiang on 2017/10/26.
+ *  本类的主要功能是 :   
+ *
+ * @author  jiang_zheng_yan  2018/10/11 13:58
+ *
  */
-
 public class UpdateInfoBean implements Serializable {
     private int version;  //版本号
     private String updateNotification;  //更新提示
