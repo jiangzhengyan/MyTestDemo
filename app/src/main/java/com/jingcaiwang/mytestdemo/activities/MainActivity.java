@@ -516,11 +516,11 @@ public class MainActivity extends AppCompatActivity {
                     //第4排
                     nextPage(btn_1, "标题", Activity_4_1.class);
                     nextPage(btn_2, "标题", Activity_4_2.class);
-                    nextPage(btn_3, "标题", Activity_4_3.class);
+                    nextPage(btn_3, "表格", Activity_4_3.class);
                     break;
                 case 5:
                     //第5排
-                    nextPage(btn_1, "标题", Activity_5_1.class);
+                    nextPage(btn_1, "测试下载", Activity_5_1.class);
                     nextPage(btn_2, "标题", Activity_5_2.class);
                     nextPage(btn_3, "标题", Activity_5_3.class);
                     break;

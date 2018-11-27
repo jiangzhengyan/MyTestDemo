@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.os.StrictMode;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import com.jingcaiwang.mytestdemo.utils.MyLifecycleHandler;
 import com.jingcaiwang.mytestdemo.utils.ScreenUtils;
 import com.lidroid.mutils.MUtils;
+import com.liulishuo.filedownloader.FileDownloader;
 import com.qihoo360.replugin.RePluginApplication;
 import com.qihoo360.replugin.gen.RePluginHostConfig;
 
@@ -52,10 +54,9 @@ public class MyApplication extends RePluginApplication {
 
         String processAppName = getAppName(pid);
         registerActivityLifecycleCallbacks(new MyLifecycleHandler());
-        if (processAppName == null || !processAppName.equalsIgnoreCase("com.jingkai.worker")) {
-            //Toast.makeText(this,"--"+processAppName,Toast.LENGTH_LONG).show();
-           // return;
-        }
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+        FileDownloader.init(getApplicationContext());
 
     }
 

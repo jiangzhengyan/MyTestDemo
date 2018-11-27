@@ -6,7 +6,15 @@
     android:background="@color/translete"
     >
 
-
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:gravity="center"
+        android:id="@+id/btn_down"
+        android:text="下载"
+        android:textColor="#111"
+        android:textSize="17sp"
+        />
 
 
 </RelativeLayout>
