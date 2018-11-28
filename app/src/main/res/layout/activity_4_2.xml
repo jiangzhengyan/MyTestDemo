@@ -20,13 +20,13 @@
         android:textSize="12sp"
         />
 
-    <View
+    <com.jingcaiwang.mytestdemo.utils.LeftDrawableTextView
         android:layout_width="match_parent"
-
-        android:layout_height="@dimen/line_height"
-        android:layout_marginTop="8dp"
-       android:paddingLeft="-122dp"
-        android:background="@color/line_color"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@mipmap/back1"
+        android:gravity="center_vertical"
+        android:drawablePadding="12dp"
+        android:text="哈喽"
         />
 
     <ScrollView
