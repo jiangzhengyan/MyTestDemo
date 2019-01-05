@@ -9,4 +9,15 @@
         <attr name="metaButtonBarButtonStyle" format="reference"/>
     </declare-styleable>
 
+    <declare-styleable name="CornerImageView">
+        <attr name="CornerImageRadius" format="dimension"/>
+
+        <attr name="CornerImageBottomLeftRadius" format="dimension"/>
+        <attr name="CornerImageBottomRightRadius" format="dimension"/>
+        <attr name="CornerImageTopLeftRadius" format="dimension"/>
+        <attr name="CornerImageTopRightRadius" format="dimension"/>
+
+
+    </declare-styleable>
+
 </resources>

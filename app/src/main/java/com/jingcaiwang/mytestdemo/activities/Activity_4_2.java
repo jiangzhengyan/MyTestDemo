@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.jingcaiwang.mytestdemo.R;
 import com.jingcaiwang.mytestdemo.pop.PopSelectDate;
+import com.jingcaiwang.mytestdemo.utils.CornerImageView;
 import com.jingcaiwang.mytestdemo.utils.UserUtil;
 
 import butterknife.Bind;
@@ -19,13 +20,14 @@ public class Activity_4_2 extends AppCompatActivity {
 
     @Bind(R.id.tv)
     TextView mTv;
+    @Bind(R.id.corneriv)
+    CornerImageView mCorneriv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_4_2);
         ButterKnife.bind(this);
-
 
     }
 

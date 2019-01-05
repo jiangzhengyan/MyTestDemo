@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/translete"
     android:padding="12dp"
     >
+
+    <com.jingcaiwang.mytestdemo.utils.CornerImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_qr_code"
+
+        android:id="@+id/corneriv"
+        android:scaleType="fitXY"
+
+
+      />
 
     <TextView
         android:id="@+id/tv"
@@ -24,8 +36,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableLeft="@mipmap/back1"
-        android:gravity="center_vertical"
         android:drawablePadding="12dp"
+        android:gravity="center_vertical"
         android:text="哈喽"
         />
 

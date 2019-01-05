@@ -6,7 +6,15 @@
     android:background="@color/translete"
     >
 
-
+<GridView
+    android:id="@+id/grid"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:numColumns="10"
+    android:horizontalSpacing="2dp"
+    android:verticalSpacing="2dp"
+    android:layout_alignParentBottom="true"
+    ></GridView>
 
 
 </RelativeLayout>
