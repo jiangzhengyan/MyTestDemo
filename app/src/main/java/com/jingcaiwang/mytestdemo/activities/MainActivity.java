@@ -522,7 +522,7 @@ public class MainActivity extends AppCompatActivity {
                     //第5排
                     nextPage(btn_1, "测试下载", Activity_5_1.class);
                     nextPage(btn_2, "标题", Activity_5_2.class);
-                    nextPage(btn_3, "标题", Activity_5_3.class);
+                    nextPage(btn_3, "练习", Activity_5_3.class);
                     break;
                 case 6:
                     //第6排
