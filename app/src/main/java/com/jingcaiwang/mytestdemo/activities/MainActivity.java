@@ -9,7 +9,6 @@ import android.content.pm.PackageManager;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -17,13 +16,15 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -41,12 +42,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.jingcaiwang.mytestdemo.R;
 import com.jingcaiwang.mytestdemo.network.OKHttpManager;
 import com.jingcaiwang.mytestdemo.utils.Lambdatest;
 import com.jingcaiwang.mytestdemo.utils.MyLifecycleHandler;
+import com.jingcaiwang.mytestdemo.utils.ToastUtil;
 import com.jingcaiwang.mytestdemo.utils.UserUtil;
 import com.jingcaiwang.mytestdemo.utils.permission.PermissionsManager;
 import com.jingcaiwang.mytestdemo.utils.permission.PermissionsResultAction;
@@ -64,8 +65,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 import de.keyboardsurfer.android.widget.crouton.Configuration;
 import de.keyboardsurfer.android.widget.crouton.Style;
@@ -73,6 +74,8 @@ import okhttp3.Request;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
+    @Bind(R.id.navigation)
+    BottomNavigationView mNavigation;
 
     private CustomNoScrollWebView web_view;
     private RelativeLayout rel;
@@ -110,6 +113,14 @@ public class MainActivity extends AppCompatActivity {
         jiexi();
         new Lambdatest();
         initPopu();
+        mNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                ToastUtil.toastLongCenter(MainActivity.this, "订单");
+
+                return true;
+            }
+        });
     }
 
     private void initPopu() {
@@ -187,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
         }
         Modes modes = JSONObject.parseObject(string, Modes.class);
         //String resultValue = jsonObject.getString("lastHeartbeatTime");
-       // Log.e(TAG, "jiexi: " + modes.getLastHeartbeatTime());
+        // Log.e(TAG, "jiexi: " + modes.getLastHeartbeatTime());
         // List<Modes> modes = JSONArray.parseArray(resultValue, Modes.class);
 
     }
@@ -703,5 +714,19 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, "onError: " + msg);
             }
         }, null);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        ToastUtil.toastLongCenter(this, "00");
+
+
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -22,13 +22,6 @@
     <!--android:indeterminateDuration="900"-->
     <!--android:indeterminateDrawable="@drawable/anim_7"/>-->
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_gravity="bottom"
-        android:background="?android:attr/windowBackground"
-        app:menu="@menu/navigation"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -112,13 +105,20 @@
     </HorizontalScrollView>
 
 
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/navigation"/>
     <ListView
         android:id="@+id/lv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:divider="@color/gray"
         android:dividerHeight="1dp"
         />
-
 
 </LinearLayout>
