@@ -58,6 +58,8 @@
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.APP_BROWSER"/>
+
             </intent-filter>
         </activity>
         <!-- This service is only used on devices with API v17+ -->
@@ -100,7 +102,13 @@
             android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".activities.Activity_4_1"/>
         <activity android:name=".activities.Activity_6_3"/>
-        <activity android:name=".activities.Activity_6_2"/>
+        <activity android:name=".activities.Activity_6_2">
+            <intent-filter>
+                <action android:name="com.jingcaiwang.mytestdemo.activities.Activity_6_2"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.DEFAULT1"/>
+            </intent-filter>
+        </activity>
         <activity android:name=".activities.Activity_5_3"/>
         <activity android:name=".activities.Activity_5_2"/>
         <activity android:name=".activities.Activity_5_1"/>
@@ -108,7 +116,9 @@
         <activity android:name=".activities.Activity_4_2"/>
         <activity android:name=".activities.Activity_6_1"/>
 
-        <meta-data android:name="baidu" android:value="$flavors"></meta-data>
+        <meta-data
+            android:name="baidu"
+            android:value="$flavors"></meta-data>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.jingcaiwang.mytestdemo.fileprovider"

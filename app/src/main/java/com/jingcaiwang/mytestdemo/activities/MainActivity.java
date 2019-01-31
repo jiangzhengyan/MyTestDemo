@@ -537,8 +537,8 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 6:
                     //第6排
-                    nextPage(btn_1, "标题", Activity_6_1.class);
-                    nextPage(btn_2, "标题", Activity_6_2.class);
+                    nextPage(btn_1, "跳转1", Activity_6_1.class);
+                    nextPage(btn_2, "跳转2", Activity_6_2.class);
                     nextPage(btn_3, "标题", Activity_6_3.class);
                     break;
                 case 7:
