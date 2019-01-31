@@ -106,6 +106,7 @@
         <activity android:name=".activities.Activity_5_1"/>
         <activity android:name=".activities.Activity_4_3"/>
         <activity android:name=".activities.Activity_4_2"/>
+        <activity android:name=".activities.Activity_6_1"/>
 
         <meta-data android:name="baidu" android:value="$flavors"></meta-data>
         <provider
