@@ -54,6 +54,9 @@
     <!--值项-->
     <dimen name="prefee_content_text_size">13sp</dimen>
 
+    <dimen name="ordinary_corner_size">14dp</dimen>
+
+
 
     <dimen name="dm001">1px</dimen>
     <dimen name="dm002">1px</dimen>

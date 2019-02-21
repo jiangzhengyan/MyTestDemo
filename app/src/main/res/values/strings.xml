@@ -10,4 +10,17 @@
     <string name="title_style">Style</string>
     <string name="title_example">Example</string>
     <string name="title_practice">Practice</string>
+    <color name="sss" >#111111</color>
+    <bool name="ee">false</bool>
+    <string-array name="ee" >
+
+        <item>00</item>
+        <item>00</item>
+        <item>00</item>
+        <item>002</item>
+        <item>030</item>
+        <item>00</item>
+        <item>00</item>
+        <item>00</item>
+    </string-array>
 </resources>
