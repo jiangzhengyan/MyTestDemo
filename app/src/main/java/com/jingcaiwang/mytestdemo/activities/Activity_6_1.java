@@ -20,7 +20,7 @@ public class Activity_6_1 extends AppCompatActivity {
 
 
     @Bind(R.id.btn)
-    Button mBtn;
+    Button mBtn  ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
