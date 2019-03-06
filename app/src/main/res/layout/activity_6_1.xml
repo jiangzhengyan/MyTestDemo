@@ -8,20 +8,27 @@
 
 
     <Button
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:textColor="#C90F0F"
-                  android:textSize="19sp"
-                  android:text="地对地导弹"
-                  android:layout_centerInParent="true"
-
-                  android:id="@+id/btn"
-                  />
-
-    <ListView
-        android:layout_width="match_parent"
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="地对地导弹"
+        android:textColor="#C90F0F"
+
+        android:textSize="19sp"
+        />
+
+    <com.jingcaiwang.mytestdemo.views.OverScrollView
+        android:layout_width="match_parent"
+        android:background="@color/bule_"
+        android:layout_height="match_parent">
+
+
+    <com.lidroid.mutils.views.MyListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:entries="@array/ee"
 
-        ></ListView>
+        />
+    </com.jingcaiwang.mytestdemo.views.OverScrollView>
 </RelativeLayout>

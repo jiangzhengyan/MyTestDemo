@@ -5,6 +5,11 @@
     android:layout_height="match_parent"
     android:background="@color/translete"
     >
+    <com.jingcaiwang.mytestdemo.activities.Activity_6_3.GameView
+        android:id="@+id/game_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 
 
 
