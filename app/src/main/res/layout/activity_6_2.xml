@@ -6,9 +6,18 @@
     android:background="@color/translete"
     >
 
-
     <com.jingcaiwang.mytestdemo.views.MyView
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
+    <TextView
+        android:layout_width="100dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="走马灯效果的演示走马灯效果的演示"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        ></TextView>
 </RelativeLayout>

@@ -29,11 +29,11 @@ import java.util.List;
  * {@link FrameLayout}, meaning you should place one child in it containing the
  * entire contents to scroll; this child may itself be a layout manager with a
  * complex hierarchy of objects. A child that is often used is a
- * {@link LinearLayout} in a vertical orientation, presenting a vertical array
+ * {@link  } in a vertical orientation, presenting a vertical array
  * of top-level items that the user can scroll through.
  * 
  * <p>
- * The {@link TextView} class also takes care of its own scrolling, so does not
+ * The {@link  } class also takes care of its own scrolling, so does not
  * require a ScrollView, but using the two together is possible to achieve the
  * effect of a text view within a larger container.
  * 
