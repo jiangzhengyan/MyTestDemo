@@ -543,15 +543,15 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 7:
                     //第7排
-                    nextPage(btn_1, "标题", Activity_1_1.class);
-                    nextPage(btn_2, "标题", Activity_1_2.class);
-                    nextPage(btn_3, "标题", Activity_1_3.class);
+                    nextPage(btn_1, "Activity_7_1", Activity_7_1.class);
+                    nextPage(btn_2, "Activity_7_2", Activity_7_2.class);
+                    nextPage(btn_3, "Activity_7_3", Activity_7_3.class);
                     break;
                 case 8:
                     //第8排
-                    nextPage(btn_1, "标题", Activity_1_1.class);
-                    nextPage(btn_2, "标题", Activity_1_2.class);
-                    nextPage(btn_3, "标题", Activity_1_3.class);
+                    nextPage(btn_1, "Activity_8_1", Activity_8_1.class);
+                    nextPage(btn_2, "Activity_8_2", Activity_8_2.class);
+                    nextPage(btn_3, "Activity_8_3", Activity_8_3.class);
                     break;
                 case 9:
                     //第9排

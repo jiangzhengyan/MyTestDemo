@@ -115,6 +115,12 @@
         <activity android:name=".activities.Activity_4_3"/>
         <activity android:name=".activities.Activity_4_2"/>
         <activity android:name=".activities.Activity_6_1"/>
+        <activity android:name=".activities.Activity_7_1"/>
+        <activity android:name=".activities.Activity_7_2"/>
+        <activity android:name=".activities.Activity_7_3"/>
+        <activity android:name=".activities.Activity_8_3"/>
+        <activity android:name=".activities.Activity_8_2"/>
+        <activity android:name=".activities.Activity_8_1"/>
 
         <meta-data
             android:name="baidu"
