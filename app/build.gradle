@@ -16,6 +16,9 @@ android {
 //        jackOptions {
 //            enabled true
 //        }
+        dexOptions {
+            javaMaxHeapSize "4g"
+        }
     }
     buildTypes {
         release {
@@ -27,6 +30,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
 //    productFlavors {
 //        baidu {
 //            manifestPlaceholders(["flavors":"baidu"])

@@ -40,15 +40,15 @@ public class Activity_1_1 extends AppCompatActivity {
         switch (view.getId()) {
 
             case R.id.btn_12:
-//                iv_anim.setBackgroundResource(R.drawable.anim_12);
-//                animationDrawable = (AnimationDrawable) iv_anim.getBackground();
-//
-//                if (animationDrawable != null && animationDrawable.isRunning()) {
-//                    animationDrawable.stop();
-//                }
-//                if (animationDrawable != null && !animationDrawable.isRunning()) {
-//                    animationDrawable.start();
-//                }
+                iv_anim.setBackgroundResource(R.drawable.anim_1demo);
+                animationDrawable = (AnimationDrawable) iv_anim.getBackground();
+
+                if (animationDrawable != null && animationDrawable.isRunning()) {
+                    animationDrawable.stop();
+                }
+                if (animationDrawable != null && !animationDrawable.isRunning()) {
+                    animationDrawable.start();
+                }
                 break;
 
         }
